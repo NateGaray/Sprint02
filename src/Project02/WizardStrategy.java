@@ -1,6 +1,7 @@
 package Project02;
 
-public class WizardStrategy implements Strategy{
+public class WizardStrategy implements Strategy
+{
     /**
      * This strategy will run from a warrior from another nation
      * and will attack a wizard from another nation. Will transfer
@@ -9,7 +10,8 @@ public class WizardStrategy implements Strategy{
      * @param otherPerson - the opponent of the encounter
      * @return - Life points used in the encounter
      */
-    public int strategy(People me, People otherPerson) {
+    public int strategy(People me, People otherPerson)
+    {
         int lifePoints = 0;
         if (me.getNation() != otherPerson.getNation())
         {

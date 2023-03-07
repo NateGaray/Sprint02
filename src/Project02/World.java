@@ -17,7 +17,7 @@ public class World
     
     public World()
     {
-        // seed for psuedo-random number generator
+        // seed for pseudo-random number generator
         Date seed = new Date();
         generator = new Random(seed.getTime());
         createWorld();
@@ -42,7 +42,7 @@ public class World
                     System.out.print("Game is over! Winning Nation is: ");
                     if (survivingNations.size() == 0)
                     {
-                        System.out.println("All Nations Distroyed.");
+                        System.out.println("All Nations Destroyed.");
                     }
                     else
                     {
@@ -120,7 +120,7 @@ public class World
         person1LifePointsToUse = worldCreatedPeople.get(person1).encounterLifePoints(worldCreatedPeople.get(person2), worldCreatedPeople.get(person1));
         person2LifePointsToUse = worldCreatedPeople.get(person2).encounterLifePoints(worldCreatedPeople.get(person1), worldCreatedPeople.get(person2));
 
-        // amount of life points actually used is subject to a psuedo-random encounter
+        // amount of life points actually used is subject to a pseudo-random encounter
         Integer p1damage =  (int) (generator.nextFloat() * person1LifePointsToUse);
         Integer p2damage =  (int) (generator.nextFloat() * person2LifePointsToUse);
 
@@ -137,7 +137,7 @@ public class World
         {
             p1damage =  (int) (generator.nextFloat() * (worldCreatedPeople.get(person2).getType().ordinal()+1)*(p2damage/3));
         }
-        else // freindly encounter, do nothing
+        else // friendly encounter, do nothing
         {
 
         }

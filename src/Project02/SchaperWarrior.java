@@ -1,13 +1,16 @@
 package Project02;
 
 
-public class SchaperWarrior extends People {
-    SchaperWarrior(String nation, String tribe, int lifePoints, Strategy warriorStrategy) {
+public class SchaperWarrior extends People
+{
+    SchaperWarrior(String nation, String tribe, int lifePoints, Strategy warriorStrategy)
+    {
         super(nation, tribe, PeopleType.warrior, lifePoints, warriorStrategy);
         myDescription = "\tSchaper Warrior";
     }
     @Override
-    public int encounterLifePoints(People me, People otherPerson) {
+    public int encounterLifePoints(People me, People otherPerson)
+    {
         return encounterStrategy.strategy(me, otherPerson);
     }
 
