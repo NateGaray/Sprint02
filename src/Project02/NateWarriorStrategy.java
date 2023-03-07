@@ -1,4 +1,6 @@
 package Project02;
 
-public class NateWarriorStrategy {
+public class NateWarriorStrategy
+{
+
 }
