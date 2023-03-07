@@ -2,9 +2,9 @@ package Project02;
 
 public class JeremyWizard extends People
 {
-    JeremyWizard(String nation, String tribe, int lifePoints, Strategy strategy)
+    JeremyWizard(String nation, String tribe, int lifePoints, Strategy JeremyWizardStrategy)
     {
-        super(nation, tribe, PeopleType.wizard, lifePoints, strategy);
+        super(nation, tribe, PeopleType.wizard, lifePoints, JeremyWizardStrategy);
         myDescription = "\tJeremy Wizard";
 
     }

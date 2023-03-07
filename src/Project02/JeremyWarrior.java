@@ -2,10 +2,10 @@ package Project02;
 
 public class JeremyWarrior extends People{
 
-    JeremyWarrior(String nation, String tribe, int lifePoints, Strategy MarieWarriorStrategy)
+    JeremyWarrior(String nation, String tribe, int lifePoints, Strategy JeremyWarriorStrategy)
     {
-        super(nation, tribe, PeopleType.warrior, lifePoints, MarieWarriorStrategy);
-        myDescription = "\tMarie Warrior";
+        super(nation, tribe, PeopleType.warrior, lifePoints, JeremyWarriorStrategy);
+        myDescription = "\tJeremy Warrior";
     }
 
     @Override
