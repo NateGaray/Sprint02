@@ -1,6 +1,5 @@
 package Project02;
 
-
 public class SchaperWarrior extends People
 {
     SchaperWarrior(String nation, String tribe, int lifePoints, Strategy warriorStrategy)
