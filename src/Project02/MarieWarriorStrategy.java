@@ -1,4 +1,5 @@
 package Project02;
 
-public class MarieWarriorStrategy {
+public class MarieWarriorStrategy
+{
 }

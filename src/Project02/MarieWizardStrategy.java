@@ -1,5 +1,6 @@
 package Project02;
 
-public class MarieWizardStrategy {
+public class MarieWizardStrategy
+{
 
 }
