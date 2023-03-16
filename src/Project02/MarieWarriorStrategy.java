@@ -15,8 +15,8 @@ public class MarieWarriorStrategy implements Strategy {
     public int strategy(People me, People otherPerson) {
         return 0;
     }
-=======
+
 public class MarieWarriorStrategy
 {
->>>>>>> e12795909d7fea2f4708e5fa4fd71d657ae15947
+
 }

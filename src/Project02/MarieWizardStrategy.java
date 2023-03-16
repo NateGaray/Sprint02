@@ -11,24 +11,34 @@ package Project02;
  * points are dangerously low ie 10 points or less
  */
 public class MarieWizardStrategy implements Strategy{
-=======
+
 public class MarieWizardStrategy
 {
->>>>>>> e12795909d7fea2f4708e5fa4fd71d657ae15947
+
 
     @Override
-    public int strategy(People me, People otherPerson) {
+    public int strategy(People me, People otherPerson)
+    {
         int lifePoints = 0;
-        if (me.getNation() != otherPerson.getNation()){
-            if (otherPerson.getLifePoints() < me.getLifePoints()){
+
+        if (me.getNation() != otherPerson.getNation())
+        {
+            if (otherPerson.getLifePoints() < me.getLifePoints())
+            {
                 if(otherPerson.getType() == PeopleType.warrior)
                     lifePoints = me.getLifePoints()/2;
             }
-        } else if (me.getNation() != otherPerson.getNation()) {
-            if (otherPerson.getLifePoints() > me.getLifePoints()){
+        }
+        else if (me.getNation() != otherPerson.getNation())
+        {
+            if (otherPerson.getLifePoints() > me.getLifePoints())
+            {
                 lifePoints = -me.getLifePoints();
-            } else if (me.getNation() == otherPerson.getNation()) {
-                if (otherPerson.getLifePoints() < me.getLifePoints()){
+            }
+            else if (me.getNation() == otherPerson.getNation())
+            {
+                if (otherPerson.getLifePoints() < me.getLifePoints())
+                {
                     lifePoints = -me.getLifePoints();
                 }
 
@@ -36,5 +46,6 @@ public class MarieWizardStrategy
 
         }
         return lifePoints;
+    }
     }
 }
