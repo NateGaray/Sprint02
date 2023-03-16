@@ -9,9 +9,11 @@ package Project02;
  * If it meets a stronger opponent, the play will be to engage in the safest way while trying to save guard the
  * points that the warrior has a that time.
  */
-public class MarieWarriorStrategy implements Strategy {
+public class MarieWarriorStrategy implements Strategy
+{
     @Override
-    public int strategy(People me, People otherPerson) {
+    public int strategy(People me, People otherPerson)
+    {
         return 0;
     }
 }

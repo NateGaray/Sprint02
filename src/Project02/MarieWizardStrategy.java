@@ -10,7 +10,8 @@ package Project02;
  * points are dangerously low ie 10 points or less
  */
 <<<<<<< HEAD
-public class MarieWizardStrategy implements Strategy{
+public class MarieWizardStrategy implements Strategy
+{
 
 public class MarieWizardStrategy
 {
@@ -29,7 +30,8 @@ public class MarieWizardStrategy implements Strategy
         if (me.getNation() != otherPerson.getNation())
         {
 =======
-        if (me.getNation() != otherPerson.getNation()){
+        if (me.getNation() != otherPerson.getNation())
+        {
 >>>>>>> 9792640ad55fe3957a30dae6b21aa293623f059d
             if (otherPerson.getLifePoints() < me.getLifePoints())
             {
