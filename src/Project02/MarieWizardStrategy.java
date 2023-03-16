@@ -9,49 +9,42 @@ package Project02;
  * if the wizard meets a warrior of the same tribe; it will give off points if the warrior
  * points are dangerously low ie 10 points or less
  */
-<<<<<<< HEAD
-public class MarieWizardStrategy implements Strategy{
 
-public class MarieWizardStrategy
-{
-
-
-=======
 public class MarieWizardStrategy implements Strategy
 {
->>>>>>> 9792640ad55fe3957a30dae6b21aa293623f059d
+
     @Override
     public int strategy(People me, People otherPerson)
     {
         int lifePoints = 0;
-<<<<<<< HEAD
+
 
         if (me.getNation() != otherPerson.getNation())
         {
-=======
+
         if (me.getNation() != otherPerson.getNation()){
->>>>>>> 9792640ad55fe3957a30dae6b21aa293623f059d
+
             if (otherPerson.getLifePoints() < me.getLifePoints())
             {
                 if(otherPerson.getType() == PeopleType.warrior)
                     lifePoints = me.getLifePoints()/2;
             }
-<<<<<<< HEAD
+
         }
         else if (me.getNation() != otherPerson.getNation())
-=======
+
         } else if (me.getNation() != otherPerson.getNation())
->>>>>>> 9792640ad55fe3957a30dae6b21aa293623f059d
+
         {
             if (otherPerson.getLifePoints() > me.getLifePoints())
             {
                 lifePoints = -me.getLifePoints();
-<<<<<<< HEAD
+
             }
             else if (me.getNation() == otherPerson.getNation())
-=======
+
             } else if (me.getNation() == otherPerson.getNation())
->>>>>>> 9792640ad55fe3957a30dae6b21aa293623f059d
+
             {
                 if (otherPerson.getLifePoints() < me.getLifePoints())
                 {
@@ -62,6 +55,6 @@ public class MarieWizardStrategy implements Strategy
 
         }
         return lifePoints;
+
     }
-    }
-}
+
