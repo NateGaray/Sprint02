@@ -6,7 +6,7 @@ public class NateWizardStrategy implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        lifePoints = 100;
+        lifePoints = me.getLifePoints();
         if (me.getNation() == otherPerson.getNation())
         {
             otherPerson.modifyLifePoints(lifePoints / 10); //heals ally

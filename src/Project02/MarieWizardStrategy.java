@@ -1,6 +1,5 @@
 package Project02;
 
-<<<<<<< HEAD
 /**
  * This strategy will run offensive strategy during the battle face off.
  * When the wizard faces an opponent(can be any opponent) that is weaker than them from another nation,
@@ -10,25 +9,27 @@ package Project02;
  * if the wizard meets a warrior of the same tribe; it will give off points if the warrior
  * points are dangerously low ie 10 points or less
  */
-public class MarieWizardStrategy implements Strategy{
-=======
-public class MarieWizardStrategy
+public class MarieWizardStrategy implements Strategy
 {
->>>>>>> e12795909d7fea2f4708e5fa4fd71d657ae15947
-
     @Override
-    public int strategy(People me, People otherPerson) {
+    public int strategy(People me, People otherPerson)
+    {
         int lifePoints = 0;
         if (me.getNation() != otherPerson.getNation()){
-            if (otherPerson.getLifePoints() < me.getLifePoints()){
+            if (otherPerson.getLifePoints() < me.getLifePoints())
+            {
                 if(otherPerson.getType() == PeopleType.warrior)
                     lifePoints = me.getLifePoints()/2;
             }
-        } else if (me.getNation() != otherPerson.getNation()) {
-            if (otherPerson.getLifePoints() > me.getLifePoints()){
+        } else if (me.getNation() != otherPerson.getNation())
+        {
+            if (otherPerson.getLifePoints() > me.getLifePoints())
+            {
                 lifePoints = -me.getLifePoints();
-            } else if (me.getNation() == otherPerson.getNation()) {
-                if (otherPerson.getLifePoints() < me.getLifePoints()){
+            } else if (me.getNation() == otherPerson.getNation())
+            {
+                if (otherPerson.getLifePoints() < me.getLifePoints())
+                {
                     lifePoints = -me.getLifePoints();
                 }
 
