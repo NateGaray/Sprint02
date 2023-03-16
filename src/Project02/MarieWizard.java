@@ -6,7 +6,9 @@ public class MarieWizard extends People{
         myDescription = "\tMarie Wizard";
     }
     @Override
-    public int encounterLifePoints(People me, People otherPerson) {
+    public int encounterLifePoints(People me, People otherPerson)
+    {
         return 0;
+
     }
 }
