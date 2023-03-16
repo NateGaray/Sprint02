@@ -3,7 +3,7 @@ package Project02;
 
 public class NateWarrior extends People
 {
-    NateWarrior(String nation, String tribe, int lifePoints, Strategy warriorStrategy)
+    public NateWarrior(String nation, String tribe, int lifePoints, Strategy warriorStrategy)
     {
         super(nation, tribe, PeopleType.warrior, lifePoints, warriorStrategy);
         myDescription = "\tNate Warrior";

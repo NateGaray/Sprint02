@@ -6,7 +6,7 @@ import Project02.PeopleType;
 
 public class NateWizard extends People
 {
-    NateWizard(String nation, String tribe, int lifePoints, Strategy strategy)
+    public NateWizard(String nation, String tribe, int lifePoints, Strategy strategy)
     {
         super(nation, tribe, PeopleType.wizard, lifePoints, strategy);
         myDescription = "\tNate Wizard";
