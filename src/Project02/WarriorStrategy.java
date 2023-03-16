@@ -1,6 +1,7 @@
 package Project02;
 
-public class WarriorStrategy implements Strategy{
+public class WarriorStrategy implements Strategy
+{
     /**
      * Warrior strategy is generally aggressive and returns maximum amount of life
      * points if players are from different nations. If from the same nation then

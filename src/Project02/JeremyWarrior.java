@@ -1,6 +1,7 @@
 package Project02;
 
-public class JeremyWarrior extends People{
+public class JeremyWarrior extends People
+{
 
     JeremyWarrior(String nation, String tribe, int lifePoints, Strategy JeremyWarriorStrategy)
     {

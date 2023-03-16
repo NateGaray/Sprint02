@@ -1,4 +1,5 @@
 package Project02;
 
-public class JeremyWarriorStategy {
+public class JeremyWarriorStategy
+{
 }

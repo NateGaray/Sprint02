@@ -1,5 +1,6 @@
 package Project02;
 
+<<<<<<< HEAD
 /**
  * This strategy will run offensive strategy during the battle face off.
  * When the wizard faces an opponent(can be any opponent) that is weaker than them from another nation,
@@ -10,6 +11,10 @@ package Project02;
  * points are dangerously low ie 10 points or less
  */
 public class MarieWizardStrategy implements Strategy{
+=======
+public class MarieWizardStrategy
+{
+>>>>>>> e12795909d7fea2f4708e5fa4fd71d657ae15947
 
     @Override
     public int strategy(People me, People otherPerson) {

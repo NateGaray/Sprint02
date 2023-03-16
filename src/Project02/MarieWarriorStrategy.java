@@ -1,5 +1,6 @@
 package Project02;
 
+<<<<<<< HEAD
 /**
  * This strategy will run a defensive strategy during the battle standoff.
  * When the warrior faces of against an opponent that is weaker it will attack at a great force
@@ -14,4 +15,8 @@ public class MarieWarriorStrategy implements Strategy {
     public int strategy(People me, People otherPerson) {
         return 0;
     }
+=======
+public class MarieWarriorStrategy
+{
+>>>>>>> e12795909d7fea2f4708e5fa4fd71d657ae15947
 }
