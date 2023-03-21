@@ -2,7 +2,7 @@ import Project02.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NateTests
+class NateTests
 {
     @Test
     public void testNateWarriorStrategyAgainstSameNationWarrior()
