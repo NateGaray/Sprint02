@@ -18,15 +18,15 @@ public class NateWarriorStrategy implements Strategy
             {
                 if (me.getLifePoints() > otherPerson.getLifePoints())
                 {
-                    lifePoints = otherPerson.getLifePoints();
+                    lifePoints -= me.getLifePoints() - (otherPerson.getLifePoints() * 1.5);
                 }
                 else if (me.getLifePoints() == otherPerson.getLifePoints())
                 {
-                    lifePoints += 0; //nothing happens
+                    otherPerson.modifyLifePoints(-(me.getLifePoints() / 10));
                 }
                 else
                 {
-                    lifePoints -= (otherPerson.getLifePoints() / 10);
+                    lifePoints -= (otherPerson.getLifePoints() / 10); //inflicts damage
                 }
             }
         }
