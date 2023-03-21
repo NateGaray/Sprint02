@@ -24,11 +24,11 @@ public class JeremyWizardStrategy implements Strategy {
         {
             if (me.getTribe() != otherPerson.getTribe())
             {
-                lifePoints = otherPerson.getLifePoints() - 3;
+                lifePoints = otherPerson.getLifePoints() - 6;
 
                 if (me.getLifePoints() == otherPerson.getLifePoints())
                 {
-                    lifePoints = otherPerson.getLifePoints() - 6;
+                    lifePoints = otherPerson.getLifePoints() - 12;
                 }
                 else
                 {
