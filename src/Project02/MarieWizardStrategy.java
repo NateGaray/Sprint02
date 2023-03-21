@@ -61,5 +61,5 @@ public class MarieWizardStrategy implements Strategy
         return lifePoints;
     }
 
-}
 
+}
