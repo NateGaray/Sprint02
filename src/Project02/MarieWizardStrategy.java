@@ -19,56 +19,68 @@ public class MarieWizardStrategy implements Strategy
     public int strategy(People me, People otherPerson)
     {
         int lifePoints = 0;
-        String convertPerson;
-
-            if (me.getNation() != otherPerson.getNation()){
-
-                if (otherPerson.getLifePoints() < me.getLifePoints())
-                {
-                    if(otherPerson.getType() == PeopleType.warrior)
-                        lifePoints = me.getLifePoints()/2;
+        if( me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
+            if (otherPerson.getType() == PeopleType.warrior && me.getType() == PeopleType.wizard){
+               lifePoints =  me.getLifePoints()/5;
+            }
+            return lifePoints;
+        }
+        if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
+            if (otherPerson.getType() == PeopleType.wizard && me.getType() == PeopleType.wizard){
+                if (otherPerson.getLifePoints() < me.getLifePoints()){
+                    lifePoints = 0;
                 }
             }
-            else if (me.getNation() != otherPerson.getNation())
-            {
-                if(otherPerson.getLifePoints() > me.getLifePoints()){
-                    if(otherPerson.getType() == PeopleType.wizard)
-                        lifePoints = otherPerson.getLifePoints()/2;
-                }
-            else if(me.getNation() != otherPerson.getNation() && otherPerson.getLifePoints() < me.getLifePoints() && otherPerson.getType() == PeopleType.wizard)
-               {
-                        convertPerson = otherPerson.encounterStrategy;
-                }
-            }
-            if(me.getLifePoints() > otherPerson.getLifePoints()){
-                if(otherPerson.getType() == PeopleType.warrior && me.getType() == PeopleType.wizard){
-                    int giveOutLifePointsToAlly = me;
-                }
-
-        } else if (me.getNation() != otherPerson.getNation())
-
-        {
-            if (otherPerson.getLifePoints() > me.getLifePoints())
-            {
-                lifePoints = -me.getLifePoints();
-
-            }
-            else if (me.getNation() == otherPerson.getNation())
-            {
-
-            }
-
-        } else if (me.getNation() == otherPerson.getNation())
-
-        {
-            if (otherPerson.getLifePoints() < me.getLifePoints())
-            {
-                lifePoints = -me.getLifePoints();
-            }
-
         }
         return lifePoints;
     }
+//        int lifePoints = 0;
+//
+//            if (me.getNation() != otherPerson.getNation()){
+//
+//                if (otherPerson.getLifePoints() < me.getLifePoints())
+//                {
+//                    if(otherPerson.getType() == PeopleType.warrior)
+//                        lifePoints = otherPerson.getLifePoints()/5;
+//                }
+//            }
+//            else if (me.getNation() != otherPerson.getNation())
+//            {
+//                if(otherPerson.getLifePoints() > me.getLifePoints()){
+//                    if(otherPerson.getType() == PeopleType.wizard)
+//                        lifePoints = me.getLifePoints()/2;
+//                }
+//
+//            }
+//            if(me.getLifePoints() > otherPerson.getLifePoints()){
+//                if(otherPerson.getType() == PeopleType.warrior && me.getType() == PeopleType.wizard){
+//                    //int giveOutLifePointsToAlly = me;
+//                }
+//
+//        } else if (me.getNation() != otherPerson.getNation())
+//
+//        {
+//            if (otherPerson.getLifePoints() > me.getLifePoints())
+//            {
+//                lifePoints = -me.getLifePoints();
+//
+//            }
+//            else if (me.getNation() == otherPerson.getNation())
+//            {
+//
+//            }
+//
+//        } else if (me.getNation() == otherPerson.getNation())
+//
+//        {
+//            if (otherPerson.getLifePoints() < me.getLifePoints())
+//            {
+//                lifePoints = -me.getLifePoints();
+//            }
+//
+//        }
+//        return lifePoints;
+//    }
 
 
 }
