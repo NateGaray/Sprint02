@@ -2,7 +2,7 @@ import Project02.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NateTests
+public class NateWarriorTests
 {
     @Test
     public void testNateWarriorStrategyAgainstSameNationWarrior()
@@ -10,15 +10,20 @@ public class NateTests
         NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
         People Franq = new NateWarrior("Nate", "0", 100, nateWarriorStrategy);
         People Josh = new NateWarrior("Nate", "0", 100, nateWarriorStrategy);
+        nateWarriorStrategy.strategy(Franq, Josh);
 
-        assertEquals(100, nateWarriorStrategy.strategy(Franq, Josh));
+        assertEquals(100, Franq.getLifePoints());
 
         People FranqTookDamage = new NateWarrior("Nate", "0", 50, nateWarriorStrategy);
         People JoshTookDamage = new NateWarrior("Nate", "0", 50, nateWarriorStrategy);
 
-        assertEquals(50, nateWarriorStrategy.strategy(FranqTookDamage, JoshTookDamage));
+        nateWarriorStrategy.strategy(FranqTookDamage, JoshTookDamage);
 
-        assertEquals(100, nateWarriorStrategy.strategy(Josh, FranqTookDamage));
+        assertEquals(50, FranqTookDamage.getLifePoints());
+
+        nateWarriorStrategy.strategy(Josh, FranqTookDamage);
+
+        assertEquals(100, Josh.getLifePoints());
     }
 
     @Test
@@ -48,7 +53,9 @@ public class NateTests
         People Franq = new NateWarrior("Nate", "0", 60, nateWarriorStrategy);
         People Gunther = new NateWarrior("Bux", "0", 60, nateWarriorStrategy);
 
-        assertEquals(60, nateWarriorStrategy.strategy(Franq, Gunther));
+        nateWarriorStrategy.strategy(Franq, Gunther);
+
+        assertEquals(60, Franq.getLifePoints());
     }
 
     @Test
