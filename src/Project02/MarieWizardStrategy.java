@@ -22,16 +22,19 @@ public class MarieWizardStrategy implements Strategy
         if (me.getNation() != otherPerson.getNation())
         {
 
-        if (me.getNation() != otherPerson.getNation()){
+            if (me.getNation() != otherPerson.getNation()){
 
-            if (otherPerson.getLifePoints() < me.getLifePoints())
-            {
-                if(otherPerson.getType() == PeopleType.warrior)
-                    lifePoints = me.getLifePoints()/2;
+                if (otherPerson.getLifePoints() < me.getLifePoints())
+                {
+                    if(otherPerson.getType() == PeopleType.warrior)
+                        lifePoints = me.getLifePoints()/2;
+                }
+
             }
+            else if (me.getNation() != otherPerson.getNation())
+            {
 
-        }
-        else if (me.getNation() != otherPerson.getNation())
+            }
 
         } else if (me.getNation() != otherPerson.getNation())
 
@@ -42,19 +45,21 @@ public class MarieWizardStrategy implements Strategy
 
             }
             else if (me.getNation() == otherPerson.getNation())
-
-            } else if (me.getNation() == otherPerson.getNation())
-
             {
-                if (otherPerson.getLifePoints() < me.getLifePoints())
-                {
-                    lifePoints = -me.getLifePoints();
-                }
 
+            }
+
+        } else if (me.getNation() == otherPerson.getNation())
+
+        {
+            if (otherPerson.getLifePoints() < me.getLifePoints())
+            {
+                lifePoints = -me.getLifePoints();
             }
 
         }
         return lifePoints;
-
     }
+
+}
 

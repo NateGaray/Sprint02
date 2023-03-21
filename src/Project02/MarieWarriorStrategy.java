@@ -11,7 +11,8 @@ package Project02;
  */
 public class MarieWarriorStrategy implements Strategy {
     @Override
-    public int strategy(People me, People otherPerson) {
+    public int strategy(People me, People otherPerson)
+    {
         return 0;
     }
 }
