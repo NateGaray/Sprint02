@@ -1,11 +1,19 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
+/**
+ * This class creates a warrior for Nate's nation.
+ * This class inherits the functionality of the People class.
+ */
 
 public class NateWizard extends People
 {
+    /**
+     * The constructor for this class gives the description of a wizard from Nate's Nation
+     * @param nation
+     * @param tribe
+     * @param lifePoints
+     * @param strategy
+     */
     public NateWizard(String nation, String tribe, int lifePoints, Strategy strategy)
     {
         super(nation, tribe, PeopleType.wizard, lifePoints, strategy);
@@ -13,6 +21,12 @@ public class NateWizard extends People
 
     }
 
+    /**
+     * This method sets the strategy that will be used
+     * @param me
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterLifePoints(People me, People otherPerson)
     {
