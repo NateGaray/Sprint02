@@ -43,7 +43,7 @@ public class NateWarriorTests
         People Franq = new NateWarrior("Nate", "0", 76, nateWarriorStrategy);
         People Gunther = new NateWarrior("Bux", "0", 45, nateWarriorStrategy);
 
-        assertEquals(45, nateWarriorStrategy.strategy(Franq, Gunther));
+        assertEquals(67, nateWarriorStrategy.strategy(Franq, Gunther));
     }
 
     @Test
@@ -56,6 +56,7 @@ public class NateWarriorTests
         nateWarriorStrategy.strategy(Franq, Gunther);
 
         assertEquals(60, Franq.getLifePoints());
+        assertEquals(54, Gunther.getLifePoints());
     }
 
     @Test
