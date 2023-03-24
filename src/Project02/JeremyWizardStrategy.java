@@ -1,7 +1,10 @@
 package Project02;
-
-
+/**
+ * This class defines the strategy for a wizard from Jeremy's nation
+ */
 public class JeremyWizardStrategy implements Strategy {
+
+    private int lifePoints;
 
     /**
      * In my JeremyWizardStrategy class, this strategy is kind of a balance
@@ -14,8 +17,6 @@ public class JeremyWizardStrategy implements Strategy {
      *  @param otherPerson - the opponent of the encounter
      *  @return - Life points used in the encounter
      */
-    private int lifePoints;
-
     public int strategy(People me, People otherPerson) {
 
         lifePoints = me.getLifePoints();
