@@ -1,4 +1,4 @@
-import Project02.*;;
+import Project02.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,17 +7,41 @@ import static org.junit.jupiter.api.Assertions.*;
 class JeremyWizardStrategyTest
 {
     @Test
+    public void testIfNationsAreNotTheSame()
+    {
+        JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
+        People Dan = new JeremyWizard("Idiot", "0", 100, jeremyWizardStrategy);
+        People Bob = new JeremyWizard("Minion", "0", 100, jeremyWizardStrategy);
+        People Jeremy = new JeremyWizard("Idiot", "0", 100, jeremyWizardStrategy);
+
+        assertFalse(Dan.getNation() == Bob.getNation());
+        assertTrue(Dan.getNation() == Jeremy.getNation());
+    }
+
+    @Test
+    public void testIfTribesAreNotTheSame()
+    {
+        JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
+        People Dan = new JeremyWizard("Hello", "0", 100, jeremyWizardStrategy);
+        People Bob = new JeremyWizard("Hello", "0", 100, jeremyWizardStrategy);
+        People Jeremy = new JeremyWizard("Hello", "1", 100, jeremyWizardStrategy);
+
+        assertTrue(Dan.getTribe() == Bob.getTribe());
+        assertFalse(Dan.getTribe() == Jeremy.getTribe());
+    }
+
+    @Test
     public void testToSeeIfOtherNationWillTakeDamage()
     {
         JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
         People Dan = new JeremyWizard("Idiot", "0", 100, jeremyWizardStrategy);
         People Bob = new JeremyWizard("Minion", "1", 99, jeremyWizardStrategy);
 
-        assertEquals(96, jeremyWizardStrategy.strategy(Dan, Bob));
+        assertEquals(93, jeremyWizardStrategy.strategy(Dan, Bob));
 
         People Jeremy = new JeremyWizard("Jeremy", "2", 100, jeremyWizardStrategy);
 
-        assertEquals(94, jeremyWizardStrategy.strategy(Dan, Jeremy));
+        assertEquals(88, jeremyWizardStrategy.strategy(Dan, Jeremy));
     }
 
     @Test
