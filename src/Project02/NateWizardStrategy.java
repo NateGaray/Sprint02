@@ -6,7 +6,6 @@ package Project02;
 
 public class NateWizardStrategy implements Strategy
 {
-    private int lifePoints;
 
     /**
      * This method defines the strategy for a wizard from Nate's nation.
@@ -18,7 +17,7 @@ public class NateWizardStrategy implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        lifePoints = me.getLifePoints();
+        int lifePoints = me.getLifePoints();
         if (me.getNation() == otherPerson.getNation())
         {
             otherPerson.modifyLifePoints(lifePoints / 10); //heals ally
@@ -26,13 +25,17 @@ public class NateWizardStrategy implements Strategy
         }
         else
         {
-            if (me.getLifePoints() > otherPerson.getLifePoints())
+            if (me.getLifePoints() < otherPerson.getLifePoints())
             {
                 lifePoints = otherPerson.getLifePoints();
             }
+            else if (me.getLifePoints() > otherPerson.getLifePoints())
+            {
+                lifePoints -= otherPerson.getLifePoints() / 10;
+            }
             else
             {
-                lifePoints -= otherPerson.getLifePoints() - me.getLifePoints();
+                otherPerson.modifyLifePoints(-(me.getLifePoints() / 10));
             }
         }
         return lifePoints;

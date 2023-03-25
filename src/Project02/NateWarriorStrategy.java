@@ -6,7 +6,6 @@ package Project02;
 
 public class NateWarriorStrategy implements Strategy
 {
-    int lifePoints;
 
     /**
      * This method defines the strategy for a warrior from Nate's nation.
@@ -20,7 +19,7 @@ public class NateWarriorStrategy implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        lifePoints = me.getLifePoints();
+        int lifePoints = me.getLifePoints();
 
         if (me.getNation() != otherPerson.getNation())
         {
