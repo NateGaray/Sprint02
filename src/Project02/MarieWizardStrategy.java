@@ -29,7 +29,7 @@ public class MarieWizardStrategy implements Strategy {
                     if (otherPerson.getType() == PeopleType.warrior && me.getType() == PeopleType.wizard) {
                         lifePoints = me.getLifePoints() / 3;
                     }
-                if (otherPerson.getType() == PeopleType.wizard && me.getType() == PeopleType.wizard) {
+                if  (otherPerson.getType() == PeopleType.wizard && me.getType() == PeopleType.wizard) {
                         lifePoints = otherPerson.getLifePoints()/5; //meWizard dominates cause other wizard on his hometurf
                     }
                 }

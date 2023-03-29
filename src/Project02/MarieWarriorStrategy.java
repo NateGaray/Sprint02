@@ -5,7 +5,7 @@ package Project02;
  * This strategy will run a defensive strategy during the battle standoff.
  * When the warrior faces of against an opponent that is weaker it will attack at a great force
  * to try to impact the most damage to that opponent.
- * if the opponent is a warrior with lower points, me warrior will attack by taking half of the other warrior points
+ * - if the opponent is a warrior with lower points, me warrior will attack by taking half of the other warrior points
  * 2.
  * When the warrior faces of against an opponent with the same number of life points, it will work to maker sure
  * it also makes the most impact in that meet.
@@ -17,22 +17,35 @@ package Project02;
  */
 public class MarieWarriorStrategy implements Strategy
 {
-        @Override
-        public int strategy(People me, People otherPerson) {
-        int lifePoints = me.getLifePoints();
-        if (otherPerson.getLifePoints() < me.getLifePoints()){ //other less points than me
-            if (me.getType() == PeopleType.warrior && otherPerson.getType() == PeopleType.wizard){ //me is warrior
-                lifePoints = 0; //decimate the opponent
+
+    @Override
+    public int strategy(People me, People otherPerson) {
+        int lifePoints = 0;
+        if (me.getType()  == PeopleType.warrior && otherPerson.getType() == PeopleType.wizard)
+        {
+            if (otherPerson.getLifePoints() < me.getLifePoints())
+            {
+                lifePoints = otherPerson.getLifePoints() - 21;
             }
-            if (me.getLifePoints() == otherPerson.getLifePoints()){
-                if (otherPerson.getType() == PeopleType.warrior && me.getType() == PeopleType.warrior){
-                    lifePoints = otherPerson.getLifePoints()/2;
-                }
+        }
+        if (me.getType() == PeopleType.warrior && otherPerson.getType() == PeopleType.warrior)
+        {
+            if (otherPerson.getLifePoints() < me.getLifePoints())
+            {
+                lifePoints = otherPerson.getLifePoints() - 25;
             }
+            if (otherPerson.getLifePoints() == me.getLifePoints()){
+                lifePoints = otherPerson.getLifePoints() - 30;
+            }
+        }
+        if (otherPerson.getLifePoints() > me.getLifePoints() && me.getType() == PeopleType.warrior){
+            lifePoints = me.getLifePoints() - 10;
+        }
+        else if (me.getType() == PeopleType.wizard && otherPerson.getType() == PeopleType.warrior)
+        {
+            lifePoints = me.getLifePoints() - 20;
         }
         return lifePoints;
     }
 }
-
-
 
