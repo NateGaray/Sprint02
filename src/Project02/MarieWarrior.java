@@ -1,5 +1,8 @@
 package Project02;
-
+/**
+ * This class creates a warrior for Marie's nation.
+ * This class inherits the functionality of the People class.
+ */
 public class MarieWarrior extends People{
     public MarieWarrior(String nation, String tribe, int lifePoints, Strategy MarieWarriorStrategy)
     {
