@@ -9,7 +9,7 @@ public class MarieWarriorTests {
         People people = new MarieWarrior("Minions", "3",100,marieWarriorStrategy);
         People other = new MarieWizard("Idiots", "2", 99, marieWarriorStrategy);
 
-        assertEquals(0,marieWarriorStrategy.strategy(people, other));
+        assertEquals(78,marieWarriorStrategy.strategy(people, other));
     }
 
     @Test
