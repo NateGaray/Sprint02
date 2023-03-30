@@ -7,12 +7,12 @@ public class MarieWizardTests
 
     public void testDifferentNationDifferentTribeDifferentPeople()
     {
-    MarieWarriorStrategy marieWarriorStrategy = new MarieWarriorStrategy();
+    MarieWizardStrategy marieWizardStrategy = new MarieWizardStrategy();
 
-    People England = new MarieWizard("Idiot","1",100,marieWarriorStrategy);
-    People Russia = new MarieWizard("Minion","2",100,marieWarriorStrategy);
-    marieWarriorStrategy.strategy(England,Russia);
-    assertEquals(20,marieWarriorStrategy.strategy(England,Russia));
+    People England = new MarieWizard("Idiot","1",99,marieWizardStrategy);
+    People Russia = new MarieWizard("Minion","2",100,marieWizardStrategy);
+    marieWizardStrategy.strategy(England,Russia);
+    assertEquals(20,marieWizardStrategy.strategy(England,Russia));
     }
 @Test
     public void testDecimateOpponentIfPointsLessThan10AndTribeAndNationDifferent(){
