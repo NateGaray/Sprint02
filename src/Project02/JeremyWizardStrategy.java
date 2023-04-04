@@ -46,8 +46,8 @@ public class JeremyWizardStrategy implements Strategy {
             {
                 if (me.getLifePoints() < otherPerson.getLifePoints() || me.getLifePoints() > otherPerson.getLifePoints())
                 {
-                    otherPerson.modifyLifePoints(lifePoints / 10); //heals ally
-                    lifePoints -= (lifePoints / 10); //takes damage
+                    lifePoints += (otherPerson.getLifePoints() / 10); //gets healed by ally wizard
+                    otherPerson.modifyLifePoints(-(otherPerson.getLifePoints() / 10)); //ally wizard takes damage
                 }
             }
 
