@@ -82,15 +82,11 @@ public class NateWizardTests
         People Harry = new NateWizard("Nate", "0", 50, nateWizardStrategy);
         People Yinx = new NateWarrior("Bink", "0", 50, nateWarriorStrategy);
 
-        nateWizardStrategy.strategy(Harry, Yinx);
-
-        assertEquals(45, Yinx.getLifePoints());
+        assertEquals(49, nateWizardStrategy.strategy(Harry, Yinx));
 
         People Todd = new NateWizard("Nate", "0", 32, nateWizardStrategy);
         People Carl = new NateWarrior("Bink", "0", 32, nateWarriorStrategy);
 
-        nateWizardStrategy.strategy(Todd, Carl);
-
-        assertEquals(29, Carl.getLifePoints());
+        assertEquals(31, nateWizardStrategy.strategy(Todd, Carl));
     }
 }

@@ -35,7 +35,7 @@ public class NateWarriorStrategy implements Strategy
                 }
                 else if (me.getLifePoints() == otherPerson.getLifePoints())
                 {
-                    otherPerson.modifyLifePoints(-(me.getLifePoints() / 10));
+                    lifePoints += 1;
                 }
                 else
                 {

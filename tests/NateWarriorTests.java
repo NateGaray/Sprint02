@@ -55,8 +55,8 @@ public class NateWarriorTests
 
         nateWarriorStrategy.strategy(Franq, Gunther);
 
-        assertEquals(60, Franq.getLifePoints());
-        assertEquals(54, Gunther.getLifePoints());
+        assertEquals(61, nateWarriorStrategy.strategy(Franq, Gunther));
+        assertEquals(60, Gunther.getLifePoints());
     }
 
     @Test

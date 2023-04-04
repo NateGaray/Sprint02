@@ -40,7 +40,7 @@ public class NateWizardStrategy implements Strategy
             }
             else
             {
-                otherPerson.modifyLifePoints(-(me.getLifePoints() / 10));
+                lifePoints -= 1;
             }
         }
         return lifePoints;
