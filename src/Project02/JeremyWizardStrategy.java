@@ -25,11 +25,11 @@ public class JeremyWizardStrategy implements Strategy {
         {
             if (me.getTribe() != otherPerson.getTribe())
             {
-                lifePoints = otherPerson.getLifePoints() - 6;
+                lifePoints = otherPerson.getLifePoints() - 12;
 
                 if (me.getLifePoints() == otherPerson.getLifePoints())
                 {
-                    lifePoints = otherPerson.getLifePoints() - 12;
+                    lifePoints = otherPerson.getLifePoints() - 24;
                 }
                 else
                 {
@@ -44,7 +44,7 @@ public class JeremyWizardStrategy implements Strategy {
         {
             if (me.getNation() == otherPerson.getNation())
             {
-                if (me.getLifePoints() < otherPerson.getLifePoints() || me.getLifePoints() > otherPerson.getLifePoints())
+                if (me.getLifePoints() < otherPerson.getLifePoints())
                 {
                     lifePoints += (otherPerson.getLifePoints() / 10); //gets healed by ally wizard
                     otherPerson.modifyLifePoints(-(otherPerson.getLifePoints() / 10)); //ally wizard takes damage

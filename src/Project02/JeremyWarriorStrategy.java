@@ -23,7 +23,7 @@ public class JeremyWarriorStrategy implements Strategy
 
         if (me.getNation() == otherPerson.getNation())
         {
-            if (me.getTribe() == otherPerson.getTribe() || me.getTribe() != otherPerson.getTribe())
+            if (me.getTribe() != otherPerson.getTribe())
             {
                 if (me.getLifePoints() > otherPerson.getLifePoints())
                 {
@@ -40,15 +40,15 @@ public class JeremyWarriorStrategy implements Strategy
         {
             if(me.getNation() != otherPerson.getNation())
             {
-                if (me.getTribe() == otherPerson.getTribe() || me.getTribe() != otherPerson.getTribe())
+                if (me.getTribe() != otherPerson.getTribe())
                 {
                     if (otherPerson.getType() == PeopleType.wizard)
                     {
-                        lifePoints = otherPerson.getLifePoints() - 10;
+                        lifePoints = otherPerson.getLifePoints() - 20;
                     }
                     else
                     {
-                        lifePoints = otherPerson.getLifePoints() - 5;
+                        lifePoints = otherPerson.getLifePoints() - 10;
                     }
                 }
             }
