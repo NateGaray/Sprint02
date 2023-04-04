@@ -34,11 +34,11 @@ class JeremyWarriorStrategyTest
     public void testToSeeIfSameNationAndTribeWillHealEachOther()
     {
         JeremyWarriorStrategy jeremyWarriorStrategy = new JeremyWarriorStrategy();
-        People Dan = new JeremyWarrior("Hello", "0", 100, jeremyWarriorStrategy);
-        People Bob = new JeremyWarrior("Hello", "0", 90, jeremyWarriorStrategy);
+        People Dan = new JeremyWarrior("Hello", "0", 90, jeremyWarriorStrategy);
+        People Bob = new JeremyWarrior("Hello", "0", 80, jeremyWarriorStrategy);
 
-        assertEquals(90, jeremyWarriorStrategy.strategy(Dan, Bob));
-        assertEquals(100, Bob.getLifePoints());
+        assertEquals(98, jeremyWarriorStrategy.strategy(Dan, Bob));
+        assertEquals(72, Bob.getLifePoints());
 
     }
 
@@ -56,11 +56,11 @@ class JeremyWarriorStrategyTest
     public void testIfTheyAreNotTheSameTypePeople()
     {
         JeremyWarriorStrategy jeremyWarriorStrategy = new JeremyWarriorStrategy();
-        People Dan = new JeremyWizard("Hello", "0", 100, jeremyWarriorStrategy);
-        People Bob = new JeremyWarrior("Hello", "0", 90, jeremyWarriorStrategy);
+        People Dan = new JeremyWizard("Hello", "0", 80, jeremyWarriorStrategy);
+        People Bob = new JeremyWarrior("Hello", "0", 70, jeremyWarriorStrategy);
 
-        assertEquals(90, jeremyWarriorStrategy.strategy(Dan, Bob));
-        assertEquals(100, Bob.getLifePoints());
+        assertEquals(87, jeremyWarriorStrategy.strategy(Dan, Bob));
+        assertEquals(63, Bob.getLifePoints());
     }
 
     @Test

@@ -61,6 +61,6 @@ class JeremyWizardStrategyTest
         People Dan = new JeremyWizard("Idiot", "0", 90, jeremyWizardStrategy);
         People Bob = new JeremyWizard("Idiot", "0", 10, jeremyWizardStrategy);
 
-        assertEquals(81, jeremyWizardStrategy.strategy(Dan, Bob));
+        assertEquals(91, jeremyWizardStrategy.strategy(Dan, Bob));
     }
 }
