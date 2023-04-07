@@ -55,7 +55,7 @@ public class NateWarriorTests
 
         nateWarriorStrategy.strategy(Franq, Gunther);
 
-        assertEquals(61, nateWarriorStrategy.strategy(Franq, Gunther));
+        assertEquals(70, nateWarriorStrategy.strategy(Franq, Gunther));
         assertEquals(60, Gunther.getLifePoints());
     }
 
@@ -77,7 +77,7 @@ public class NateWarriorTests
         People Franq = new NateWarrior("Nate", "0", 67, nateWarriorStrategy);
         People Gunther = new NateWizard("Nate", "0", 70, nateWizardStrategy);
 
-        assertEquals(74, nateWarriorStrategy.strategy(Franq, Gunther));
-        assertEquals(63, nateWarriorStrategy.strategy(Gunther, Franq));
+        assertEquals(81, nateWarriorStrategy.strategy(Franq, Gunther));
+        assertEquals(56, nateWarriorStrategy.strategy(Gunther, Franq));
     }
 }

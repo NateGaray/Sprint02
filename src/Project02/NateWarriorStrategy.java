@@ -35,7 +35,7 @@ public class NateWarriorStrategy implements Strategy
                 }
                 else if (me.getLifePoints() == otherPerson.getLifePoints())
                 {
-                    lifePoints += 1;
+                    lifePoints += 10;
                 }
                 else
                 {
@@ -46,8 +46,8 @@ public class NateWarriorStrategy implements Strategy
         else if (me.getNation() == otherPerson.getNation() && otherPerson.getType() == PeopleType.wizard)
         {
 
-            lifePoints += (otherPerson.getLifePoints() / 10); //gets healed by ally wizard
-            otherPerson.modifyLifePoints(-(otherPerson.getLifePoints() / 10)); //ally wizard takes damage
+            lifePoints += (otherPerson.getLifePoints() / 5); //gets healed by ally wizard
+            otherPerson.modifyLifePoints(-(otherPerson.getLifePoints() / 5)); //ally wizard takes damage
         }
         else
         {
