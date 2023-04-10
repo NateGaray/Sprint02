@@ -70,7 +70,7 @@ class JeremyWarriorStrategyTest
         People Dan = new JeremyWizard("Hello", "0", 100, jeremyWarriorStrategy);
         People Bob = new JeremyWarrior("Minion", "1", 100, jeremyWarriorStrategy);
 
-        assertEquals(90, jeremyWarriorStrategy.strategy(Dan, Bob));
+        assertEquals(80, jeremyWarriorStrategy.strategy(Dan, Bob));
     }
 
     @Test
@@ -80,7 +80,7 @@ class JeremyWarriorStrategyTest
         People Dan = new JeremyWarrior("Minion", "0", 100, jeremyWizardStrategy);
         People Bob = new JeremyWizard("Hello", "1", 100, jeremyWizardStrategy);
 
-        assertEquals(80, jeremyWizardStrategy.strategy(Dan, Bob));
+        assertEquals(65, jeremyWizardStrategy.strategy(Dan, Bob));
     }
 
 
