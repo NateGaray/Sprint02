@@ -27,12 +27,8 @@ public class JeremyWarriorStrategy implements Strategy
             {
                 if (me.getLifePoints() > otherPerson.getLifePoints())
                 {
-                    lifePoints += (otherPerson.getLifePoints() / 10); //gets healed by ally warrior
-                    otherPerson.modifyLifePoints(-(otherPerson.getLifePoints() / 10)); //ally warrior takes damage
-                }
-                else
-                {
-                    lifePoints += 0; //nothing happens
+                    otherPerson.modifyLifePoints(lifePoints / 10); //heals ally
+                    lifePoints -= (lifePoints / 10); //takes damage
                 }
             }
         }
@@ -44,11 +40,11 @@ public class JeremyWarriorStrategy implements Strategy
                 {
                     if (otherPerson.getType() == PeopleType.wizard)
                     {
-                        lifePoints = otherPerson.getLifePoints() - 20;
+                        lifePoints = otherPerson.getLifePoints() - 35;
                     }
-                    else
+                    else if (otherPerson.getType() == PeopleType.warrior)
                     {
-                        lifePoints = otherPerson.getLifePoints() - 10;
+                        lifePoints = otherPerson.getLifePoints() - 20;
                     }
                 }
             }
