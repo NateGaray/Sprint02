@@ -1,43 +1,35 @@
 package Project02;
 
 /**
- * 1.
- * This strategy will run offensive strategy during the battle face off.
- * When the wizard faces an opponent(can be any opponent) that is weaker than them,
- * it will attack at a greater strength and causing alot of damage to its opponent.
- * When the wizard faces an opponent that is stronger than them from another nation,
- * and if the opponent is a warrior, the wizard will absorb more attacks for the sake of the tribe. making it loose points
- * if the opponent is a wiard, the wizard will try to convert me to become a part if its tribe
- * if the wizard meets a warrior from the same tribe; it will give off points if the warrior
- * points are dangerously low ie 10 points or less
+ * This class defines the strategy for a wizard from Marie's nation
+ * will cause minimal damage if other life points are less than me life points
+ * and other is from a different tribe and nation. In the same breath is other has more life points
+ * it will cause maximum damage
+ * if nations and tribes are equal and other lifepoints is greater it will call the Marie Peaceful strategy
+ * if the opposite is true, it will call cast a spell by calling the Marie Defensive Strategy
  */
-
-public class MarieWizardStrategy implements Strategy {
+public class MarieWizardStrategy implements Strategy{
     @Override
     public int strategy(People me, People otherPerson) {
-
-        int lifePoints = me.getLifePoints();
-
-        if (me.getNation() != otherPerson.getNation())//different nations
-        {
-            if (otherPerson.getLifePoints() < 10) {                               //other lifepoints less than 10 //decimate the opponent
-                lifePoints = 0;
-
-            }
-            if (me.getLifePoints() < otherPerson.getLifePoints()) {
-                if (me.getNation() != otherPerson.getNation()) {
-                    if (otherPerson.getType() == PeopleType.warrior && me.getType() == PeopleType.wizard) {
-                        lifePoints = me.getLifePoints() / 3;
-                    }
-                if  (otherPerson.getType() == PeopleType.wizard && me.getType() == PeopleType.wizard) {
-                        lifePoints = otherPerson.getLifePoints()/5; //meWizard dominates cause other wizard on his hometurf
-                    }
+            int myLifePoints = me.getLifePoints();
+            int otherLifePoints = otherPerson.getLifePoints();
+        // if other is a wizard from different nation and tribe
+        if (otherPerson.getType() == PeopleType.wizard && otherPerson.getNation() != me.getNation()
+                    && otherPerson.getTribe() != me.getTribe()) {
+                // if other life points are also less than my life points
+                if (otherLifePoints < myLifePoints) {
+                    // attack causing as minimal damage as possible
+                    return otherLifePoints/4;
+                } else {
+                    // if other has more life points than me attack to cause as much damage as possible
+                    return otherLifePoints / 2;
                 }
+            } else if (otherPerson.getNation() == me.getNation() &&
+                    otherPerson.getTribe() == me.getTribe() && otherPerson.getLifePoints() > me.getLifePoints()) {
+                return MariePeaceful.calculatePoints(me, otherPerson);
+            } else {
+                return MarieDefensive.calculatePoints(me, otherPerson);
             }
+
         }
-        return lifePoints;
     }
-}
-
-                                                                    //if my lifepoints greater than other
-

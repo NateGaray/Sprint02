@@ -66,6 +66,10 @@ public abstract class People
         myLifePoints += points;
     }
 
+    public void setMyLifePoints(int myLifePoints) {
+        this.myLifePoints = myLifePoints;
+    }
+
     public void changeStrategy(Strategy s)
     {
         encounterStrategy = s;
