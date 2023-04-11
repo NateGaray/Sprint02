@@ -28,9 +28,9 @@ public class MarieWarriorStrategy implements Strategy {
             }
         } else if (otherPerson.getNation() == me.getNation() &&
                 otherPerson.getTribe() == me.getTribe() && otherPerson.getLifePoints() > me.getLifePoints()){
-            return MariePeaceful.calculatePoints(me, otherPerson);
+            return MariePeaceful.calculateLifePoints(me, otherPerson);
         } else {
-            return MarieDefensive.calculatePoints(me, otherPerson);
+            return MarieDefensive.calculateLifePoints(me, otherPerson);
         }
 
     }

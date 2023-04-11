@@ -10,7 +10,7 @@ public class MarieDefensive implements Strategy{
     public int strategy(People me, People otherPerson) {
         return 0;
     }
-    public static int calculatePoints(People me, People otherPerson) {
+    public static int calculateLifePoints(People me, People otherPerson) {
         if (me.getNation() != otherPerson.getNation() &&
                 me.getTribe() != otherPerson.getTribe() &&
                 otherPerson.getType() != me.getType()) ;
