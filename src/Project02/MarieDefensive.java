@@ -15,6 +15,7 @@ public class MarieDefensive implements Strategy{
                 me.getTribe() != otherPerson.getTribe() &&
                 otherPerson.getType() != me.getType()) ;
         if (otherPerson.getLifePoints() > me.getLifePoints())
+
             return me.getLifePoints() / 5;
         // else if different nation, tribe and type but me life points greater return other life points in half
         return otherPerson.getLifePoints() / 2;

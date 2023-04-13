@@ -21,7 +21,7 @@ public class MarieWizardStrategy implements Strategy{
                     // attack causing as minimal damage as possible
                     return otherLifePoints/4;
                 } else {
-                    // if other has more life points than me attack to cause as much damage as possible
+                    // if meo has more life points than me attack to cause as much damage as possible
                     return otherLifePoints / 2;
                 }
             } else if (otherPerson.getNation() == me.getNation() &&

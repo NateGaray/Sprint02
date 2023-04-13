@@ -3,7 +3,7 @@ package Project02;
  * This class defines the strategy for a warrior from Marie's nation
  * will cause minimal damage if other life points are less than me life points
  * and other is from a different tribe and nation and other is a wizard.
- * In the same breath is other has more life points
+ * In the same breath if other has more life points
  * it will cause maximum damage
  * if nations and tribes are equal and other lifepoints is greater it will call the Marie Peaceful strategy
  * if the opposite is true, it will call cast a spell by calling the Marie Defensive Strategy
