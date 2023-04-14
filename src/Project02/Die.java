@@ -1,9 +1,8 @@
 package Project02;
 
-import java.util.Date;
 import java.util.Random;
 
-public class Dice
+public class Die
 {
     int dieFaces = 0;
 
@@ -24,10 +23,10 @@ public class Dice
     // every roll should come up with a number between 1 and 10
     // die should have faces greater than 2
     {
-        die = (int) (Math.random() * 10) + 1;
+        die = (int) (Math.random() * 100) + 1;
     }
 }
-// class with an abituary number of  faces of die
+// class with an arbitrary number of  faces of die
 // have a rol dice method
 // call said class in the roll method
 // have it call based on the  number 
