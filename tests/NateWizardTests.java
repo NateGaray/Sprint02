@@ -13,9 +13,7 @@ public class NateWizardTests
         People Franq = new NateWizard("Nate", "0", 80, nateWizardStrategy);
         People Josh = new NateWarrior("Bee", "0", 77, nateWarriorStrategy);
 
-        nateWizardStrategy.strategy(Franq, Josh);
-
-        assertEquals(80, Franq.getLifePoints());
+        assertEquals(40, nateWizardStrategy.strategy(Franq, Josh));
 
         People Hank = new NateWizard("Nate", "0", 90, nateWizardStrategy);
         People Chris = new NateWarrior("Bee", "0", 88, nateWarriorStrategy);
