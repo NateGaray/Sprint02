@@ -17,15 +17,21 @@ public class NateWizardStrategy implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        int lifePoints = 0;
+        int lifePoints = me.getLifePoints();
 
         if (otherPerson.getNation() != me.getNation())
         {
             if(otherPerson.getType() == PeopleType.warrior && otherPerson.getLifePoints() >= 75
                     && me.getLifePoints() >= 75)
             {
-                NateHeavyDamage nateHeavyDamage = new NateHeavyDamage();
-                return nateHeavyDamage.strategy(me, otherPerson);
+                NateHeavyDamage heavyDamage = new NateHeavyDamage();
+                return heavyDamage.strategy(me, otherPerson);
+            }
+            else if (lifePoints < 75 && lifePoints % 12 == 0 && otherPerson.getLifePoints()
+                    >= me.getLifePoints() + 8 && otherPerson.getLifePoints() < 75)
+            {
+                NateHealingSpecial healingSpecial = new NateHealingSpecial();
+                return healingSpecial.strategy(me, otherPerson);
             }
         }
 
