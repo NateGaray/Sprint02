@@ -1,7 +1,7 @@
 package Project02;
 
 /**
- * This artifact is a poison stone.
+ * This artifact is a poisonous stone.
  * When it is encountered a person will take damage.
  */
 
