@@ -1,6 +1,6 @@
 package Project02;
 
-public class JeremyArtifact 
+public class JeremyArtifact
 {
 
 }
