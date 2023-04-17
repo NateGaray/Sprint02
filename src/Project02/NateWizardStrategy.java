@@ -17,14 +17,16 @@ public class NateWizardStrategy implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        int lifePoints = me.getLifePoints();
+        int lifePoints = 0;
 
-        if((otherPerson.getLifePoints() == 77 || otherPerson.getLifePoints() == 27) && me.getNation() != otherPerson.getNation())
+        if (otherPerson.getNation() != me.getNation())
         {
-            NateWizardSuperSpell superSpell = new NateWizardSuperSpell();
-            superSpell.strategy(me, otherPerson);
-
-            return otherPerson.getLifePoints();
+            if(otherPerson.getType() == PeopleType.warrior && otherPerson.getLifePoints() >= 75
+                    && otherPerson.getLifePoints() != 77 && me.getLifePoints() >= 75)
+            {
+                NateHeavyDamage nateHeavyDamage = new NateHeavyDamage();
+                return nateHeavyDamage.strategy(me, otherPerson);
+            }
         }
 
         return lifePoints;

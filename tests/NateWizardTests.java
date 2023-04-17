@@ -4,22 +4,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class NateWizardTests
 {
+
     @Test
-    public void testThrowsSuperSpell()
+    public void testTakesHeavyDamage()
     {
         NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
-        People Franq = new NateWizard("Nate", "0", 77, nateWizardStrategy);
-        People Josh = new NateWizard("Bee", "0", 89, nateWizardStrategy);
+        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
+        People Franq = new NateWizard("Nate", "0", 80, nateWizardStrategy);
+        People Josh = new NateWarrior("Bee", "0", 77, nateWarriorStrategy);
 
         nateWizardStrategy.strategy(Franq, Josh);
 
-        assertEquals(1, Josh.getLifePoints());
+        assertEquals(80, Franq.getLifePoints());
 
-        People Hank = new NateWizard("Nate", "0", 27, nateWizardStrategy);
-        People Chris = new NateWizard("Bee", "0", 40, nateWizardStrategy);
+        People Hank = new NateWizard("Nate", "0", 90, nateWizardStrategy);
+        People Chris = new NateWarrior("Bee", "0", 88, nateWarriorStrategy);
 
-        nateWizardStrategy.strategy(Hank, Chris);
-
-        assertEquals(1, Chris.getLifePoints());
+        assertEquals(45, nateWizardStrategy.strategy(Hank, Chris));
     }
 }
