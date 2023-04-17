@@ -18,31 +18,15 @@ public class NateWizardStrategy implements Strategy
     public int strategy(People me, People otherPerson)
     {
         int lifePoints = me.getLifePoints();
-        if (me.getNation() == otherPerson.getNation() && otherPerson.getType() == PeopleType.wizard)
+
+        if((otherPerson.getLifePoints() == 77 || otherPerson.getLifePoints() == 27) && me.getNation() != otherPerson.getNation())
         {
-            otherPerson.modifyLifePoints(lifePoints / 10); //heals ally
-            lifePoints -= (lifePoints / 10); //takes damage
+            NateWizardSuperSpell superSpell = new NateWizardSuperSpell();
+            superSpell.strategy(me, otherPerson);
+
+            return otherPerson.getLifePoints();
         }
-        else if (me.getNation() == otherPerson.getNation() && otherPerson.getType() == PeopleType.warrior)
-        {
-            otherPerson.modifyLifePoints(lifePoints / 5); //heals ally
-            lifePoints -= (lifePoints / 5); //takes damage
-        }
-        else
-        {
-            if (me.getLifePoints() < otherPerson.getLifePoints())
-            {
-                lifePoints = otherPerson.getLifePoints();
-            }
-            else if (me.getLifePoints() > otherPerson.getLifePoints())
-            {
-                lifePoints -= otherPerson.getLifePoints() / 10;
-            }
-            else
-            {
-                lifePoints -= 1;
-            }
-        }
+
         return lifePoints;
     }
 }
