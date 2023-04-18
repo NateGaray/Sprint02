@@ -54,6 +54,11 @@ public class NateWarriorStrategy implements Strategy
             lifePoints += 0; //nothing happens
         }
 
+        if (lifePoints > 100)
+        {
+            lifePoints = 100;
+        }
+
         return lifePoints;
     }
 }
