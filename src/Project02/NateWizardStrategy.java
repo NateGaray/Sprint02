@@ -22,17 +22,37 @@ public class NateWizardStrategy implements Strategy
         if (otherPerson.getNation() != me.getNation())
         {
             if(otherPerson.getType() == PeopleType.warrior && otherPerson.getLifePoints() >= 75
-                    && me.getLifePoints() >= 75)
+                    && lifePoints >= 75)
             {
                 NateHeavyDamage heavyDamage = new NateHeavyDamage();
-                return heavyDamage.strategy(me, otherPerson);
+                lifePoints -= heavyDamage.strategy(me, otherPerson);
             }
             else if (lifePoints < 75 && lifePoints % 12 == 0 && otherPerson.getLifePoints()
                     >= me.getLifePoints() + 8 && otherPerson.getLifePoints() < 75)
             {
                 NateHealingSpecial healingSpecial = new NateHealingSpecial();
-                return healingSpecial.strategy(me, otherPerson);
+                lifePoints = healingSpecial.strategy(me, otherPerson);
             }
+            else if (lifePoints % 12 != 0 && lifePoints < 75 && otherPerson.getLifePoints() < 75 && lifePoints >= 35)
+            {
+                NateMediumDamage mediumDamage = new NateMediumDamage();
+                lifePoints -= mediumDamage.strategy(me, otherPerson);
+            }
+            else
+            {
+                NateLightDamage lightDamage = new NateLightDamage();
+                lifePoints -= lightDamage.strategy(me, otherPerson);
+            }
+        }
+        else
+        {
+            NateNothingHappens nothingHappens = new NateNothingHappens();
+            lifePoints += nothingHappens.strategy(me, otherPerson);
+        }
+
+        if (lifePoints > 100)
+        {
+            lifePoints = 100;
         }
 
         return lifePoints;

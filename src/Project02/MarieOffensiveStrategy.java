@@ -1,27 +1,31 @@
 package Project02;
 
 /**
- * Implement a healer player which will only be able to heal friendly people (from same nation).
- * Amount of healing to be determined by a roll of the dice.
+ * In this strategy the me people type will run away when other lifepoints are greater ,
+ * and in running away it will take on damage.therefore it will call the healer strategy
+ * that will heal the me people type (once) and then it will call the defensive strategy to
+ * take on the other people type
  */
-public class MarieHealerStrategy implements Strategy{
-
+public class MarieOffensiveStrategy implements Strategy{
     @Override
     public int strategy(People me, People otherPerson)
     {
-        if (me.getNation() == otherPerson.getNation())
-            if (me.getLifePoints() < otherPerson.getLifePoints())
-        {
-            Die die = new Die();
-            die.setDie(6);
-            System.out.println(die);
-            die.rollDie();
-            System.out.println(die);
-            return me.getLifePoints() + 10;
-        }else if (otherPerson.getLifePoints() > me.getLifePoints()){
-                Die die = new Die();
-                die.setDie(6);
-                die.rollDie();
-            }return otherPerson.getLifePoints() * 2;
+        int lifePoints;
+    if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
+        if (me.getLifePoints() < otherPerson.getLifePoints()){
+            if (otherPerson.getType() == PeopleType.warrior)
+            {
+                lifePoints = me.getLifePoints() - 15; // always run away
+            }
+        }
+    }
+    else if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
+        if (me.getLifePoints() > otherPerson.getLifePoints()){
+            if(otherPerson.getType() == PeopleType.warrior){
+                return MarieDefensive.calculateLifePoints(me, otherPerson);
+            }
+        }
+    }else return MariePeaceful.calculateLifePoints(me,otherPerson);
+
     }
 }

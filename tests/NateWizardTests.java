@@ -36,4 +36,50 @@ public class NateWizardTests
 
         assertEquals(36, nateWizardStrategy.strategy(Roveq, Poge));
     }
+
+    @Test
+    public void testTakesMediumDamage()
+    {
+        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
+        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
+        People Franq = new NateWizard("Nate", "0", 35, nateWizardStrategy);
+        People Josh = new NateWarrior("Bee", "0", 56, nateWarriorStrategy);
+
+        assertEquals(28, nateWizardStrategy.strategy(Franq, Josh));
+    }
+
+    @Test
+    public void testTakesLightDamage()
+    {
+        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
+        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
+        People Franq = new NateWizard("Nate", "0", 20, nateWizardStrategy);
+        People Josh = new NateWarrior("Bee", "0", 21, nateWarriorStrategy);
+
+        assertEquals(18, nateWizardStrategy.strategy(Franq, Josh));
+    }
+
+    @Test
+    public void testLifePointsNeverOver100()
+    {
+        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
+        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
+        People Franq = new NateWizard("Nate", "0", 500, nateWizardStrategy);
+        People Josh = new NateWarrior("Bee", "0", 300, nateWarriorStrategy);
+
+        assertEquals(100, nateWizardStrategy.strategy(Franq, Josh));
+    }
+
+    @Test
+    public void testEncountersSameNation()
+    {
+        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
+        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
+        People Franq = new NateWizard("Nate", "0", 67, nateWizardStrategy);
+        People Josh = new NateWarrior("Nate", "0", 66, nateWarriorStrategy);
+
+        nateWizardStrategy.strategy(Franq, Josh);
+
+        assertEquals(67, Franq.getLifePoints());
+    }
 }
