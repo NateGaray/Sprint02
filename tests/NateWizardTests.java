@@ -69,4 +69,17 @@ public class NateWizardTests
 
         assertEquals(100, nateWizardStrategy.strategy(Franq, Josh));
     }
+
+    @Test
+    public void testEncountersSameNation()
+    {
+        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
+        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
+        People Franq = new NateWizard("Nate", "0", 67, nateWizardStrategy);
+        People Josh = new NateWarrior("Nate", "0", 66, nateWarriorStrategy);
+
+        nateWizardStrategy.strategy(Franq, Josh);
+
+        assertEquals(67, Franq.getLifePoints());
+    }
 }

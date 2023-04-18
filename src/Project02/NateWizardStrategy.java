@@ -44,6 +44,11 @@ public class NateWizardStrategy implements Strategy
                 lifePoints -= lightDamage.strategy(me, otherPerson);
             }
         }
+        else
+        {
+            NateNothingHappens nothingHappens = new NateNothingHappens();
+            lifePoints += nothingHappens.strategy(me, otherPerson);
+        }
 
         if (lifePoints > 100)
         {
