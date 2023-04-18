@@ -18,7 +18,7 @@ public class MarieHealerStrategy implements Strategy{
             die.rollDie();
             System.out.println(die);
             return me.getLifePoints() + 10;
-        }else if (otherPerson.getLifePoints() > me.getLifePoints()){
+        } else if (otherPerson.getLifePoints() > me.getLifePoints()){
                 Die die = new Die();
                 die.setDie(6);
                 die.rollDie();
