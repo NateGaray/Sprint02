@@ -50,7 +50,10 @@ public class JeremyWizardStrategy implements Strategy {
                     lifePoints -= (lifePoints / 10); //takes damage
                 }
             }
-
+        }
+        if (lifePoints > 100)
+        {
+            lifePoints = 100;
         }
         return lifePoints;
     }

@@ -49,7 +49,10 @@ public class JeremyWarriorStrategy implements Strategy
                 }
             }
         }
+        if (lifePoints > 100)
+        {
+            lifePoints = 100;
+        }
         return lifePoints;
     }
-
 }
