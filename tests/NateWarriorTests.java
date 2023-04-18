@@ -5,79 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class NateWarriorTests
 {
     @Test
-    public void testNateWarriorStrategyAgainstSameNationWarrior()
+    public void testTakesHeavyDamage()
     {
         NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        People Franq = new NateWarrior("Nate", "0", 100, nateWarriorStrategy);
-        People Josh = new NateWarrior("Nate", "0", 100, nateWarriorStrategy);
-        nateWarriorStrategy.strategy(Franq, Josh);
+        People Franq = new NateWarrior("Nate", "0", 77, nateWarriorStrategy);
+        People Josh = new NateWarrior("Bee", "0", 70, nateWarriorStrategy);
 
-        assertEquals(100, Franq.getLifePoints());
+        assertEquals(39, nateWarriorStrategy.strategy(Franq, Josh));
 
-        People FranqTookDamage = new NateWarrior("Nate", "0", 50, nateWarriorStrategy);
-        People JoshTookDamage = new NateWarrior("Nate", "0", 50, nateWarriorStrategy);
-
-        nateWarriorStrategy.strategy(FranqTookDamage, JoshTookDamage);
-
-        assertEquals(50, FranqTookDamage.getLifePoints());
-
-        nateWarriorStrategy.strategy(Josh, FranqTookDamage);
-
-        assertEquals(100, Josh.getLifePoints());
-    }
-
-    @Test
-    public void testNateWarriorStrategyNationNotEqualAndLifePoints100()
-    {
-        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        People Franq = new NateWarrior("Nate", "0", 100, nateWarriorStrategy);
-        People Gunther = new NateWarrior("Bux", "0", 100, nateWarriorStrategy);
-
-        assertEquals(95, nateWarriorStrategy.strategy(Franq, Gunther));
-    }
-
-    @Test
-    public void testNateWarriorStrategyNationNotEqualAndLifePointsGreaterThanOpponent()
-    {
-        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        People Franq = new NateWarrior("Nate", "0", 76, nateWarriorStrategy);
-        People Gunther = new NateWarrior("Bux", "0", 45, nateWarriorStrategy);
-
-        assertEquals(67, nateWarriorStrategy.strategy(Franq, Gunther));
-    }
-
-    @Test
-    public void testNateWarriorStrategyNationNotEqualAndLifePointsEqual()
-    {
-        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        People Franq = new NateWarrior("Nate", "0", 60, nateWarriorStrategy);
-        People Gunther = new NateWarrior("Bux", "0", 60, nateWarriorStrategy);
-
-        nateWarriorStrategy.strategy(Franq, Gunther);
-
-        assertEquals(70, nateWarriorStrategy.strategy(Franq, Gunther));
-        assertEquals(60, Gunther.getLifePoints());
-    }
-
-    @Test
-    public void testNateWarriorStrategyNationNotEqualAndLifePointsLessThanOpponent()
-    {
-        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        People Franq = new NateWarrior("Nate", "0", 67, nateWarriorStrategy);
-        People Gunther = new NateWarrior("Bux", "0", 70, nateWarriorStrategy);
-
-        assertEquals(60, nateWarriorStrategy.strategy(Franq, Gunther));
-    }
-
-    @Test
-    public void testNateWarriorStrategyNationEqualAndAWizardIsEncountered()
-    {
-        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
-        People Franq = new NateWarrior("Nate", "0", 67, nateWarriorStrategy);
-        People Gunther = new NateWizard("Nate", "0", 70, nateWizardStrategy);
-
-        assertEquals(81, nateWarriorStrategy.strategy(Franq, Gunther));
-        assertEquals(56, nateWarriorStrategy.strategy(Gunther, Franq));
     }
 }

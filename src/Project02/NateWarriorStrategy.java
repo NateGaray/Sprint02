@@ -23,35 +23,28 @@ public class NateWarriorStrategy implements Strategy
 
         if (me.getNation() != otherPerson.getNation())
         {
-            if (me.getLifePoints() >= 100)
+            if (me.getLifePoints() > otherPerson.getLifePoints() && me.getLifePoints() >= 70
+                    && otherPerson.getLifePoints() <= 70 && otherPerson.getLifePoints() >= 50)
             {
-                lifePoints -= 5; //takes damage
+                NateHeavyDamage heavyDamage = new NateHeavyDamage();
+                lifePoints -= heavyDamage.strategy(me, otherPerson);
+            }
+            else if (me.getLifePoints() < 70 && me.getLifePoints() >= 50 && otherPerson.getLifePoints() > 70 ||
+                    otherPerson.getLifePoints() < 50)
+            {
+                NateMediumDamage mediumDamage = new NateMediumDamage();
+                lifePoints -= mediumDamage.strategy(me, otherPerson);
             }
             else
             {
-                if (me.getLifePoints() > otherPerson.getLifePoints())
-                {
-                    lifePoints -= me.getLifePoints() - (otherPerson.getLifePoints() * 1.5);
-                }
-                else if (me.getLifePoints() == otherPerson.getLifePoints())
-                {
-                    lifePoints += 10;
-                }
-                else
-                {
-                    lifePoints -= (otherPerson.getLifePoints() / 10); //inflicts damage
-                }
+                NateLightDamage lightDamage = new NateLightDamage();
+                lifePoints -= lightDamage.strategy(me, otherPerson);
             }
-        }
-        else if (me.getNation() == otherPerson.getNation() && otherPerson.getType() == PeopleType.wizard)
-        {
-
-            lifePoints += (otherPerson.getLifePoints() / 5); //gets healed by ally wizard
-            otherPerson.modifyLifePoints(-(otherPerson.getLifePoints() / 5)); //ally wizard takes damage
         }
         else
         {
-            lifePoints += 0; //nothing happens
+            NateNothingHappens nothingHappens = new NateNothingHappens();
+            lifePoints += nothingHappens.strategy(me, otherPerson); //nothing happens
         }
 
         if (lifePoints > 100)
