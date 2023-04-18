@@ -15,7 +15,14 @@ public class MarieWarriorStrategy implements Strategy {
     public int strategy(People me, People otherPerson) {
         int myLifePoints = me.getLifePoints();
         int otherLifePoints = otherPerson.getLifePoints();
+        int lifePoints = 100;
         // if other is a warrior from different nation and tribe
+        if (myLifePoints > 100){
+            return lifePoints;
+        }
+        if (otherLifePoints > 100){
+            return lifePoints;
+        }
         if (otherPerson.getType() == PeopleType.warrior && otherPerson.getNation() != me.getNation()
                 && otherPerson.getTribe() != me.getTribe()) {
             // if other life points are also less than my life points
@@ -29,10 +36,10 @@ public class MarieWarriorStrategy implements Strategy {
         } else if (otherPerson.getNation() == me.getNation() &&
                 otherPerson.getTribe() == me.getTribe() && otherPerson.getLifePoints() > me.getLifePoints()){
             return MariePeaceful.calculateLifePoints(me, otherPerson);
-        } else {
+        } else
+        {
             return MarieDefensive.calculateLifePoints(me, otherPerson);
         }
-
     }
 }
 
