@@ -10,7 +10,7 @@ public class MarieOffensiveStrategy implements Strategy{
     @Override
     public int strategy(People me, People otherPerson)
     {
-        int lifePoints;
+        int lifePoints = 0;
     if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
         if (me.getLifePoints() < otherPerson.getLifePoints()){
             if (otherPerson.getType() == PeopleType.warrior)
@@ -27,5 +27,6 @@ public class MarieOffensiveStrategy implements Strategy{
         }
     }else return MariePeaceful.calculateLifePoints(me,otherPerson);
 
+        return lifePoints;
     }
 }
