@@ -58,6 +58,11 @@ public abstract class People
 
     public int getLifePoints()
     {
+        if (myLifePoints > 100)
+        {
+            myLifePoints = 100;
+        }
+
         return myLifePoints;
     }
 
