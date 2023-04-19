@@ -57,6 +57,11 @@ public class NateWizardTests
         People Josh = new NateWarrior("Bee", "0", 21, nateWarriorStrategy);
 
         assertEquals(18, nateWizardStrategy.strategy(Franq, Josh));
+
+        People Franq1 = new NateWizard("Nate", "0", 9, nateWizardStrategy);
+        People Josh1 = new NateWarrior("Bee", "0", 12, nateWarriorStrategy);
+
+        assertEquals(8, nateWizardStrategy.strategy(Franq1, Josh1));
     }
 
     @Test

@@ -39,5 +39,10 @@ public class NateWarriorTests
         People Josh = new NateWarrior("Bee", "0", 69, nateWarriorStrategy);
 
         assertEquals(41, nateWarriorStrategy.strategy(Franq, Josh));
+
+        People Franq1 = new NateWarrior("Nate", "0", 9, nateWarriorStrategy);
+        People Josh1 = new NateWarrior("Bee", "0", 32, nateWarriorStrategy);
+
+        assertEquals(8, nateWarriorStrategy.strategy(Franq1, Josh1));
     }
 }

@@ -14,11 +14,12 @@ public class NateHealerStrategy implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        int lifePoints = 0;
+        int lifePoints = me.getLifePoints();
 
         Die die = new Die();
         die.setDie(98);
         die.rollDie();
+
         if (me.getNation() == otherPerson.getNation())
         {
             otherPerson.modifyLifePoints(die.getDie());
@@ -27,10 +28,29 @@ public class NateHealerStrategy implements Strategy
         }
         else
         {
-            NateHeavyDamage heavyDamage = new NateHeavyDamage();
-            lifePoints -= heavyDamage.strategy(me, otherPerson);
+            if (lifePoints >= 60)
+            {
+                NateHeavyDamage heavyDamage = new NateHeavyDamage();
+                lifePoints -= heavyDamage.strategy(me, otherPerson);
+            }
+            else if (lifePoints >= 30)
+            {
+                NateMediumDamage mediumDamage = new NateMediumDamage();
+                lifePoints -= mediumDamage.strategy(me, otherPerson);
+            }
+            else
+            {
+                NateLightDamage lightDamage = new NateLightDamage();
 
-            return lifePoints;
+                if (lifePoints < 10)
+                {
+                    lifePoints -= 1;
+                }
+
+                lifePoints -= lightDamage.strategy(me, otherPerson);
+            }
         }
+
+        return lifePoints;
     }
 }

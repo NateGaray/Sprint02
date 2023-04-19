@@ -33,7 +33,7 @@ public class NateWizardStrategy implements Strategy
                 NateHealingSpecial healingSpecial = new NateHealingSpecial();
                 lifePoints = healingSpecial.strategy(me, otherPerson);
             }
-            else if (lifePoints % 12 != 0 && lifePoints < 75 && otherPerson.getLifePoints() < 75 && lifePoints >= 35)
+            else if (lifePoints % 12 != 0 && lifePoints < 75 && lifePoints >= 35 && otherPerson.getLifePoints() < 75)
             {
                 NateMediumDamage mediumDamage = new NateMediumDamage();
                 lifePoints -= mediumDamage.strategy(me, otherPerson);
@@ -41,6 +41,12 @@ public class NateWizardStrategy implements Strategy
             else
             {
                 NateLightDamage lightDamage = new NateLightDamage();
+
+                if (lifePoints < 10)
+                {
+                    lifePoints -= 1;
+                }
+
                 lifePoints -= lightDamage.strategy(me, otherPerson);
             }
         }

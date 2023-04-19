@@ -38,6 +38,12 @@ public class NateWarriorStrategy implements Strategy
             else
             {
                 NateLightDamage lightDamage = new NateLightDamage();
+
+                if (lifePoints < 10)
+                {
+                    lifePoints -= 1;
+                }
+
                 lifePoints -= lightDamage.strategy(me, otherPerson);
             }
         }
