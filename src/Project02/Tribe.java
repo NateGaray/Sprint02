@@ -15,20 +15,26 @@ public class Tribe
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
-        for(int i = 0; i < 2; i++)
-            if(i % 2 == 0)
+        for(int i = 0; i < 3; i++)
+            if(i % 3 == 0)
             {
-                members.add(new SchaperWarrior("Schaper", tribeName, tribeLifePoints / 2, new WarriorStrategy()));
-                members.add(new NateWarrior("Nate", tribeName, tribeLifePoints / 2, new NateWarriorStrategy()));
-                members.add(new MarieWarrior("Marie", tribeName, tribeLifePoints / 2, new MarieWarriorStrategy()));
-                members.add(new JeremyWarrior("Jeremy", tribeName, tribeLifePoints / 2, new JeremyWarriorStrategy()));
+                members.add(new SchaperWarrior("Schaper", tribeName, tribeLifePoints / 3, new WarriorStrategy()));
+                members.add(new NateWarrior("Nate", tribeName, tribeLifePoints / 3, new NateWarriorStrategy()));
+                members.add(new MarieWarrior("Marie", tribeName, tribeLifePoints / 3, new MarieWarriorStrategy()));
+                members.add(new JeremyWarrior("Jeremy", tribeName, tribeLifePoints / 3, new JeremyWarriorStrategy()));
+            }
+            else if (i % 3 == 1)
+            {
+                members.add(new SchaperWizard("Schaper", tribeName, tribeLifePoints / 3, new WizardStrategy()));
+                members.add(new NateWizard("Nate", tribeName, tribeLifePoints / 3, new NateWizardStrategy()));
+                members.add(new MarieWizard("Marie", tribeName, tribeLifePoints / 3, new MarieWizardStrategy()));
+                members.add(new JeremyWizard("Jeremy", tribeName, tribeLifePoints / 3, new JeremyWizardStrategy()));
             }
             else
             {
-                members.add(new SchaperWizard("Schaper", tribeName, tribeLifePoints / 2, new WizardStrategy()));
-                members.add(new NateWizard("Nate", tribeName, tribeLifePoints / 2, new NateWizardStrategy()));
-                members.add(new MarieWizard("Marie", tribeName, tribeLifePoints / 2, new MarieWizardStrategy()));
-                members.add(new JeremyWizard("Jeremy", tribeName, tribeLifePoints / 2, new JeremyWizardStrategy()));
+                members.add(new NateHealer("Nate", tribeName, tribeLifePoints / 3, new NateWizardStrategy()));
+                members.add(new MarieHealer("Marie", tribeName, PeopleType.healer, tribeLifePoints / 3, new MarieHealerStrategy()));
+                members.add(new JeremyHealer("Jeremy", tribeName, PeopleType.healer, tribeLifePoints / 3, new JeremyHealerStrategy()));
             }
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
