@@ -9,18 +9,16 @@ package Project02;
 public class MarieHealerStrategy implements Strategy{
     @Override
     public int strategy(People me, People otherPerson) {
-        return 0;
-    }
-
-    public int calulateOffensive(People me, People otherPerson) {
-        int healAmount = 0;
+        int mePointsLeftAfterRunning = 0;
         Die die = new Die();
         die.setDie(98);
         die.rollDie();
-       if (me.getNation() == otherPerson.getNation()){
-               me.modifyLifePoints(die.getDie());
-       }else return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
-
-       return healAmount;
+        if (me.getNation() == otherPerson.getNation()) {
+            me.modifyLifePoints(die.getDie());
+        }else if (otherPerson.getLifePoints() > me.getLifePoints())
+        {
+            mePointsLeftAfterRunning = me.getLifePoints() - 15;
+        }
+        return mePointsLeftAfterRunning;
     }
 }
