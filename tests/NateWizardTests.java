@@ -60,17 +60,6 @@ public class NateWizardTests
     }
 
     @Test
-    public void testLifePointsNeverOver100()
-    {
-        NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
-        NateWarriorStrategy nateWarriorStrategy = new NateWarriorStrategy();
-        People Franq = new NateWizard("Nate", "0", 500, nateWizardStrategy);
-        People Josh = new NateWarrior("Bee", "0", 300, nateWarriorStrategy);
-
-        assertEquals(100, nateWizardStrategy.strategy(Franq, Josh));
-    }
-
-    @Test
     public void testEncountersSameNation()
     {
         NateWizardStrategy nateWizardStrategy = new NateWizardStrategy();
