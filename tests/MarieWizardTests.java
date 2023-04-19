@@ -42,21 +42,4 @@ public class MarieWizardTests {
         assertEquals(17, wizardStrategy.strategy(me, other));
     }
 
-    @Test
-    public void testMeLifePointsNeverGreaterThan100()
-    {
-        MarieWarriorStrategy warriorStrategy = new MarieWarriorStrategy();
-        People me = new MarieWarrior("Minons","1",101, warriorStrategy);
-        People other = new MarieWarrior("Minions", "1",95,warriorStrategy);
-        assertEquals(100, warriorStrategy.strategy(me,other));
-    }
-
-    @Test
-    public void testOtherLifePointsNeverGreaterThan100()
-    {
-        MarieWarriorStrategy warriorStrategy = new MarieWarriorStrategy();
-        People me = new MarieWarrior("Minons","1",95, warriorStrategy);
-        People other = new MarieWarrior("Minons","1",101, warriorStrategy);
-        assertEquals(100, warriorStrategy.strategy(me,other));
-    }
 }
