@@ -5,7 +5,7 @@ package Project02;
  * return my life points divided by 5
  * If latter is false, it will return the other life points in half
  */
-public class MarieDefensive implements Strategy{
+public class MarieDefensiveStrategy implements Strategy{
     @Override
     public int strategy(People me, People otherPerson) {
         return 0;

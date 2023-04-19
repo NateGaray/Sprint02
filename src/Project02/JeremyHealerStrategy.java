@@ -9,7 +9,7 @@ public class JeremyHealerStrategy implements Strategy
         {
             if (me.getLifePoints() < otherPerson.getLifePoints() || me.getLifePoints() > otherPerson.getLifePoints())
             {
-                Die healingDie = new Die();
+                Die healingDie = new  Die();
                 healingDie.setDie(98);
                 healingDie.rollDie();
 

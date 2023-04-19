@@ -22,11 +22,13 @@ public class MarieOffensiveStrategy implements Strategy{
     else if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
         if (me.getLifePoints() > otherPerson.getLifePoints()){
             if(otherPerson.getType() == PeopleType.warrior){
-                return MarieDefensive.calculateLifePoints(me, otherPerson);
+                return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
             }
         }
-    }else return MariePeaceful.calculateLifePoints(me,otherPerson);
+    } else return MariePeacefulStrategy.calculateLifePoints(me,otherPerson);
 
-        return lifePoints;
+    return lifePoints;
     }
 }
+
+

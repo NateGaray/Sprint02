@@ -5,7 +5,7 @@ package Project02;
  * exchange life points with me type regardless.
  * If latter is false, it will cast a spell by calling Marie Defensive Strategy
  */
-public class MariePeaceful implements  Strategy{
+public class MariePeacefulStrategy implements  Strategy{
     public static int calculateLifePoints(People me, People otherPerson) {
         if (me.getNation() == otherPerson.getNation() &&
         me.getTribe() == otherPerson.getTribe() && otherPerson.getLifePoints() > me.getLifePoints()
@@ -14,7 +14,7 @@ public class MariePeaceful implements  Strategy{
             int pointsToShare = otherPerson.getLifePoints() - 10;
             return pointsToShare + me.getLifePoints();
         }else {
-            return MarieDefensive.calculateLifePoints(me, otherPerson);
+            return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
         }
     }
 
