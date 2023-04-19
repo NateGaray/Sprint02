@@ -21,7 +21,6 @@ public class JeremyHealerStrategy implements Strategy
                 {
                     otherPerson.modifyLifePoints(60);
                 }
-                return otherPerson.getLifePoints();
             }
         }
         return otherPerson.getLifePoints();

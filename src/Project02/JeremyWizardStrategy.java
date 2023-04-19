@@ -7,13 +7,14 @@ public class JeremyWizardStrategy implements Strategy {
     private int lifePoints;
 
     /**
-     * In my JeremyWizardStrategy class, this strategy is kind of a balance
-     * of a lot of different strategy. In the first part of this strategy, it
-     * is more aggressive if the nations do not equal and the more that they are not
-     * alike the more damage is dealt. The for the defensive part, if the other person is a
-     * warrior he wizards will end up running way to play it safe. Lastly if the nations end up
-     * being the same then they have the potential of healing an ally.
-     *  @param me - person to get life points for.
+     *  In my wizard strategy class it is first checking of the nations are not equal then
+     *  checking if the tribes are not the same, and if that's the case it will move toward my
+     *  aggressive strategy and go thought that. If the tribes end up being the same tho it will use
+     *  my defensive strategy instead. So if the nations end up being the same then it will also use
+     *  my defensive strategy. One last thing my strategy has is if the nations are the same I have less
+     *  life points than the person im going against witch is my teammate, I will end up using a healer.
+     *  Lastly if the life points end up going above 100 it will set them back to 100.
+     *  @param me - person to get life points for
      *  @param otherPerson - the opponent of the encounter
      *  @return - Life points used in the encounter
      */
@@ -25,32 +26,28 @@ public class JeremyWizardStrategy implements Strategy {
         {
             if (me.getTribe() != otherPerson.getTribe())
             {
-                lifePoints = otherPerson.getLifePoints() - 20;
-
-                if (me.getLifePoints() == otherPerson.getLifePoints())
-                {
-                    lifePoints = otherPerson.getLifePoints() - 35;
-                }
-                else
-                {
-                    if (otherPerson.getType() == PeopleType.warrior) // run away
-                    {
-                        lifePoints = -me.getLifePoints();
-                    }
-                }
+                JeremyAggressiveWizard jeremyAggressiveWizard = new JeremyAggressiveWizard();
+                lifePoints = jeremyAggressiveWizard.strategy(me, otherPerson);
+            }
+            else if (me.getTribe() == otherPerson.getTribe())
+            {
+                JeremyDefensiveWizard jeremyDefensiveWizard = new JeremyDefensiveWizard();
+                lifePoints= jeremyDefensiveWizard.strategy(me, otherPerson);
             }
         }
         else
         {
             if (me.getNation() == otherPerson.getNation())
             {
+                JeremyDefensiveWizard jeremyDefensiveWizard = new JeremyDefensiveWizard();
+                lifePoints = jeremyDefensiveWizard.strategy(me, otherPerson);
+            }
                 if (me.getLifePoints() < otherPerson.getLifePoints())
                 {
-                    otherPerson.modifyLifePoints(lifePoints / 10); //heals ally
-                    lifePoints -= (lifePoints / 10); //takes damage
+                    JeremyHealerStrategy jeremyHealerStrategy = new JeremyHealerStrategy();
+                    lifePoints = jeremyHealerStrategy.strategy(me, otherPerson);
                 }
             }
-        }
         if (lifePoints > 100)
         {
             lifePoints = 100;
