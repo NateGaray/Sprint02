@@ -31,36 +31,54 @@ class JeremyWizardStrategyTest
     }
 
     @Test
-    public void testToSeeIfOtherNationWillTakeDamage()
+    public void testIfTribeWillBeMoreAggressive()
     {
         JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
-        People Dan = new JeremyWizard("Idiot", "0", 100, jeremyWizardStrategy);
-        People Bob = new JeremyWizard("Minion", "1", 99, jeremyWizardStrategy);
+        People dan = new JeremyWizard("Hello", "0", 100, jeremyWizardStrategy);
+        People bob = new JeremyWizard("Hi", "1", 90, jeremyWizardStrategy);
 
-        assertEquals(79, jeremyWizardStrategy.strategy(Dan, Bob));
-
-        People Jeremy = new JeremyWizard("Jeremy", "2", 100, jeremyWizardStrategy);
-
-        assertEquals(65, jeremyWizardStrategy.strategy(Dan, Jeremy));
+        assertEquals(50, jeremyWizardStrategy.strategy(dan, bob));
     }
 
     @Test
-    public void testIfWizardWillRunAway()
+    public void testIfMyLifePointsAreLess()
     {
         JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
-        People Dan = new JeremyWizard("Minion", "0", 100, jeremyWizardStrategy);
-        People Bob = new JeremyWizard("Minion", "1", 100, jeremyWizardStrategy);
+        People dan = new JeremyWizard("Hello", "0", 90, jeremyWizardStrategy);
+        People bob = new JeremyWizard("Hi", "1", 100, jeremyWizardStrategy);
 
-        assertEquals(100, jeremyWizardStrategy.strategy(Dan, Bob));
+        assertEquals(40, jeremyWizardStrategy.strategy(dan, bob));
     }
 
     @Test
-    public void testIfWizardWillHealAnotherFriend()
+    public void testIfTribesAreEqual()
     {
         JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
-        People Dan = new JeremyWizard("Idiot", "0", 90, jeremyWizardStrategy);
-        People Bob = new JeremyWizard("Idiot", "0", 10, jeremyWizardStrategy);
+        People dan = new JeremyWizard("Hello", "1", 30, jeremyWizardStrategy);
+        People bob = new JeremyWarrior("Hi", "1", 50, jeremyWizardStrategy);
+        People jeremy = new JeremyWizard("Hi", "1", 70, jeremyWizardStrategy);
 
-        assertEquals(90, jeremyWizardStrategy.strategy(Dan, Bob));
+        assertEquals(60, jeremyWizardStrategy.strategy(dan, bob));
+        assertEquals(90, jeremyWizardStrategy.strategy(dan, jeremy));
+    }
+
+    @Test
+    public void testIfNationsAreTheSameAndIfThereTribesAreTheSameOrNot()
+    {
+        JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
+        People dan = new JeremyWizard("hello", "0", 70, jeremyWizardStrategy);
+        People bob = new JeremyWarrior("hello", "1", 50, jeremyWizardStrategy);
+
+        assertEquals(80, jeremyWizardStrategy.strategy(dan, bob));
+    }
+
+    @Test
+    public void testToSeeIfMaxHeathWillStayAt100()
+    {
+        JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
+        People dan = new JeremyWizard("Hello", "1", 60, jeremyWizardStrategy);
+        People bob = new JeremyWizard("Hi", "1", 60, jeremyWizardStrategy);
+
+        assertEquals(100, jeremyWizardStrategy.strategy(dan, bob));
     }
 }
