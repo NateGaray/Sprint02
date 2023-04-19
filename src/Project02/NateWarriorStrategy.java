@@ -23,7 +23,7 @@ public class NateWarriorStrategy implements Strategy
 
         if (me.getNation() != otherPerson.getNation())
         {
-            if (me.getLifePoints() > otherPerson.getLifePoints() && me.getLifePoints() >= 70
+            if (me.getLifePoints() > otherPerson.getLifePoints() && lifePoints >= 70 && lifePoints <= 100
                     && otherPerson.getLifePoints() <= 70 && otherPerson.getLifePoints() >= 50)
             {
                 NateHeavyDamage heavyDamage = new NateHeavyDamage();
@@ -45,11 +45,6 @@ public class NateWarriorStrategy implements Strategy
         {
             NateNothingHappens nothingHappens = new NateNothingHappens();
             lifePoints += nothingHappens.strategy(me, otherPerson); //nothing happens
-        }
-
-        if (lifePoints > 100)
-        {
-            lifePoints = 100;
         }
 
         return lifePoints;
