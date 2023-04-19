@@ -8,11 +8,11 @@ public class Die
 
     Random random = new Random(System.currentTimeMillis());
 
-    int die = random.nextInt(dieFaces) + 2;
+    int die;
 
     public void setDie(int dieFace)
     {
-        this.dieFaces = dieFace;
+        this.dieFaces = dieFace + 2;
     }
     public int getDie()
     {
@@ -23,7 +23,7 @@ public class Die
     // every roll should come up with a number between 1 and 10
     // die should have faces greater than 2
     {
-        die = (int) (Math.random() * 100) + 1;
+        die = random.nextInt(dieFaces);
     }
 }
 // class with an arbitrary number of  faces of die
