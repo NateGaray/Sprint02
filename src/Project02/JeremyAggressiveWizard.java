@@ -28,8 +28,7 @@ public class JeremyAggressiveWizard implements Strategy
                 }
                 else if (me.getLifePoints() < otherPerson.getLifePoints())
                 {
-                    if (me.getTribe() != otherPerson.getTribe())
-                    {
+                    if (me.getTribe() != otherPerson.getTribe()) {
                         return otherPerson.getLifePoints() - 60;
                         // This will do the most damage if im lower in health and if the tribes
                         // are not the same
