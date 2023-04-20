@@ -11,17 +11,26 @@ public class NateArtifactStrategy implements Strategy
 
         if (die.getDie() == 2)
         {
+            int healingReceived = otherPerson.getLifePoints();
+
             NateHealingPotion healingPotion = new NateHealingPotion();
-            return healingPotion.strategy(me, otherPerson);
+            healingReceived += healingPotion.strategy(me, otherPerson);
+
+            return healingReceived;
         }
         else if (die.getDie() == 9)
         {
+            int damageTaken = otherPerson.getLifePoints();
+
             NateDamagePotion damagePotion = new NateDamagePotion();
-            return damagePotion.strategy(me, otherPerson);
+            damageTaken -= damagePotion.strategy(me, otherPerson);
+
+            return damageTaken;
         }
         else
         {
             NateNothingHappens nothingHappens = new NateNothingHappens();
+
             return nothingHappens.strategy(me, otherPerson); // Decoy potion
         }
     }
