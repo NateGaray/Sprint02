@@ -4,11 +4,15 @@ package Project02;
 // make a type of tribe
 // should return life points
 
-public class MarieArtifact implements Strategy
+public class MarieArtifact extends People
 {
 
+    public MarieArtifact(String nation, String tribe, PeopleType person, int lifePoints, Strategy strategy) {
+        super(nation, tribe, person, lifePoints, strategy);
+    }
+
     @Override
-    public int strategy(People me, People otherPerson) {
+    public int encounterLifePoints(People me, People otherPerson) {
         return 0;
     }
 }

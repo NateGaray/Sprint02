@@ -9,6 +9,6 @@ public class MarieHealer extends People{
 
     @Override
     public int encounterLifePoints(People me, People otherPerson) {
-        return 0;
+        return encounterStrategy.strategy(me, otherPerson);
     }
 }
