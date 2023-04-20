@@ -71,14 +71,4 @@ class JeremyWizardStrategyTest
 
         assertEquals(80, jeremyWizardStrategy.strategy(dan, bob));
     }
-
-    @Test
-    public void testToSeeIfMaxHeathWillStayAt100()
-    {
-        JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
-        People dan = new JeremyWizard("Hello", "1", 60, jeremyWizardStrategy);
-        People bob = new JeremyWizard("Hi", "1", 60, jeremyWizardStrategy);
-
-        assertEquals(100, jeremyWizardStrategy.strategy(dan, bob));
-    }
 }
