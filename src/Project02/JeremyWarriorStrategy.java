@@ -7,12 +7,13 @@ public class JeremyWarriorStrategy implements Strategy
     private int lifePoints;
 
     /**
-     * In my JeremyWarriorStrategy, For the first thing they do is try to heal each other
-     * if one is lower in health than the other and if that's not the case they will end
-     * up doing nothing. The if the nations are not the same, and it doesn't matter if the
-     * nations are the same or not. If the warrior is attacking a wizard they will end
-     * up doing double the damage as if they encountered a warrior. Overall this
-     * strategy Is a balance between healing/defending and attacking.
+     * In Jeremy's warrior strategy if is first  checking if the nations are the same and if they are
+     * then it checks if the tribes are not the same or are the same. Then it just does one more check
+     * to see if I have less point than the other peron vise versa. If that is the case it will use
+     * Jeremy's healing strategy. So if the nations are not the same it checks if the tribes the same
+     * or not, then if the other person ends up being a wizard it will use Jeremy's aggressive strategy.
+     * If the Person ends up being a warrior it will use Jeremy's defensive strategy. Then lastly it will
+     * just return the outcome of my heath.
      * @param me - person to get life points for.
      * @param otherPerson - the opponent of the encounter
      * @return - Life Points Used for the encounter
@@ -23,35 +24,33 @@ public class JeremyWarriorStrategy implements Strategy
 
         if (me.getNation() == otherPerson.getNation())
         {
-            if (me.getTribe() != otherPerson.getTribe())
+            if (me.getTribe() != otherPerson.getTribe() || me.getTribe() == otherPerson.getTribe())
             {
-                if (me.getLifePoints() > otherPerson.getLifePoints())
+                if (me.getLifePoints() > otherPerson.getLifePoints() || me.getLifePoints() < otherPerson.getLifePoints())
                 {
-                    otherPerson.modifyLifePoints(lifePoints / 10); //heals ally
-                    lifePoints -= (lifePoints / 10); //takes damage
+                    JeremyHealerStrategy jeremyHealerStrategy = new JeremyHealerStrategy();
+                    lifePoints = jeremyHealerStrategy.strategy(me, otherPerson);
                 }
             }
         }
         else
         {
-            if(me.getNation() != otherPerson.getNation())
+            if (me.getNation() != otherPerson.getNation())
             {
-                if (me.getTribe() != otherPerson.getTribe())
+                if (me.getTribe() != otherPerson.getTribe() || me.getTribe() == otherPerson.getTribe())
                 {
                     if (otherPerson.getType() == PeopleType.wizard)
                     {
-                        lifePoints = otherPerson.getLifePoints() - 35;
+                        JeremyAggressiveWarrior jeremyAggressiveWarrior = new JeremyAggressiveWarrior();
+                        lifePoints = jeremyAggressiveWarrior.strategy(me, otherPerson);
                     }
                     else if (otherPerson.getType() == PeopleType.warrior)
                     {
-                        lifePoints = otherPerson.getLifePoints() - 20;
+                        JeremyDefensiveWarrior jeremyDefensiveWarrior = new JeremyDefensiveWarrior();
+                        lifePoints = jeremyDefensiveWarrior.strategy(me, otherPerson);
                     }
                 }
             }
-        }
-        if (lifePoints > 100)
-        {
-            lifePoints = 100;
         }
         return lifePoints;
     }

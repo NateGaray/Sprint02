@@ -1,14 +1,31 @@
 package Project02;
 
+/**
+ * This class creates a healer for Jeremy's nation.
+ * This class inherits the functionality of the People class.
+ */
 public class JeremyHealer extends People
 {
 
-    public JeremyHealer(String nation, String tribe, PeopleType person, int lifePoints, Strategy strategy)
+    /**
+     * The constructor for this class gives the description of a warrior from Jeremy's Nation
+     * @param nation - The name of the nation
+     * @param tribe - The name of the tribe
+     * @param lifePoints - The amount of life points that nations/tribe has
+     * @param jeremyHealingStrategy - The strategy it implements
+     */
+    public JeremyHealer(String nation, String tribe, PeopleType person, int lifePoints, Strategy jeremyHealingStrategy)
     {
-        super(nation, tribe, person, lifePoints, strategy);
+        super(nation, tribe, person, lifePoints, jeremyHealingStrategy);
         myDescription = "\tJeremy Healer";
     }
 
+    /**
+     * This method sets the strategy that will be used
+     * @param me - Who I am plying as
+     * @param otherPerson - Could be friendly or non-friendly
+     * @return - returns the strategy
+     */
     @Override
     public int encounterLifePoints(People me, People otherPerson)
     {

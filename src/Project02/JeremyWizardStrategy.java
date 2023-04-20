@@ -32,7 +32,7 @@ public class JeremyWizardStrategy implements Strategy {
             else if (me.getTribe() == otherPerson.getTribe())
             {
                 JeremyDefensiveWizard jeremyDefensiveWizard = new JeremyDefensiveWizard();
-                lifePoints= jeremyDefensiveWizard.strategy(me, otherPerson);
+                lifePoints = jeremyDefensiveWizard.strategy(me, otherPerson);
             }
         }
         else
@@ -48,10 +48,6 @@ public class JeremyWizardStrategy implements Strategy {
                     lifePoints = jeremyHealerStrategy.strategy(me, otherPerson);
                 }
             }
-        if (lifePoints > 100)
-        {
-            lifePoints = 100;
-        }
         return lifePoints;
     }
 }
