@@ -1,7 +1,18 @@
 package Project02;
 
+/**
+ * This class defines the strategy for a witch;
+ */
+
 public class NateArtifactStrategy implements Strategy
 {
+    /**
+     * This strategy determines if an encountered player will get healed take damage or nothing will happen
+     * @param me - person to get life points for.
+     * @param otherPerson - the opponent of the encounter
+     * @return
+     */
+
     @Override
     public int strategy(People me, People otherPerson)
     {
