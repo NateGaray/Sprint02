@@ -22,7 +22,7 @@ public class NateArtifactStrategy implements Strategy
         else
         {
             NateNothingHappens nothingHappens = new NateNothingHappens();
-            return nothingHappens.strategy(me, otherPerson);
+            return nothingHappens.strategy(me, otherPerson); // Decoy potion
         }
     }
 }
