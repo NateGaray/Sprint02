@@ -14,7 +14,7 @@ public class NateArtifactStrategy implements Strategy
             int healingReceived = otherPerson.getLifePoints();
 
             NateHealingPotion healingPotion = new NateHealingPotion();
-            healingReceived += healingPotion.strategy(me, otherPerson);
+            healingReceived *= healingPotion.strategy(me, otherPerson);
 
             return healingReceived;
         }
@@ -23,7 +23,7 @@ public class NateArtifactStrategy implements Strategy
             int damageTaken = otherPerson.getLifePoints();
 
             NateDamagePotion damagePotion = new NateDamagePotion();
-            damageTaken -= damagePotion.strategy(me, otherPerson);
+            damageTaken /= damagePotion.strategy(me, otherPerson);
 
             return damageTaken;
         }
