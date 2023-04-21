@@ -69,6 +69,11 @@ public abstract class People
     public void modifyLifePoints(int points)
     {
         myLifePoints += points;
+
+        if (myLifePoints > 100)
+        {
+            myLifePoints = 100;
+        }
     }
 
     public void setMyLifePoints(int myLifePoints) {
