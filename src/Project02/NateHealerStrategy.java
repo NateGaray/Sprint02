@@ -28,20 +28,24 @@ public class NateHealerStrategy implements Strategy
         }
         else
         {
-            if (lifePoints >= 60)
+            if (lifePoints >= 50)
             {
-                NateHeavyDamage heavyDamage = new NateHeavyDamage();
-                lifePoints -= heavyDamage.strategy(me, otherPerson);
+                lifePoints -= lifePoints / 2;
             }
-            else if (lifePoints >= 30)
+            else if (lifePoints >= 25)
             {
-                NateMediumDamage mediumDamage = new NateMediumDamage();
-                lifePoints -= mediumDamage.strategy(me, otherPerson);
+                lifePoints -= lifePoints / 4;
             }
             else
             {
-                NateLightDamage lightDamage = new NateLightDamage();
-                lifePoints -= lightDamage.strategy(me, otherPerson);
+                if (lifePoints < 10)
+                {
+                    lifePoints -= 1;
+                }
+                else
+                {
+                    lifePoints -= lifePoints / 10;
+                }
             }
         }
 

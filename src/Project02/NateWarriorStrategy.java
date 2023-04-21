@@ -14,39 +14,35 @@ public class NateWarriorStrategy implements Strategy
      * If the nations are not equal, the warrior will inflict damage on the enemy.
      * If the warrior encounters a wizard from his/her own nation, he/she is healed.
      * If the warrior encounters a warrior from his/her nation, a peaceful encounter occurs.
-     * This means nothing happens.
      */
     @Override
     public int strategy(People me, People otherPerson)
     {
-        int lifePoints = me.getLifePoints();
+        int myLifePoints = me.getLifePoints();
+        int otherLifePoints = otherPerson.getLifePoints();
 
         if (me.getNation() != otherPerson.getNation())
         {
-            if (me.getLifePoints() > otherPerson.getLifePoints() && lifePoints >= 70 && lifePoints <= 100
-                    && otherPerson.getLifePoints() <= 70 && otherPerson.getLifePoints() >= 50)
+            if (myLifePoints > otherLifePoints || otherLifePoints >= 60)
             {
                 NateHeavyDamage heavyDamage = new NateHeavyDamage();
-                lifePoints -= heavyDamage.strategy(me, otherPerson);
+                return heavyDamage.strategy(me, otherPerson);
             }
-            else if (me.getLifePoints() < 70 && me.getLifePoints() >= 50 && otherPerson.getLifePoints() > 70 ||
-                    otherPerson.getLifePoints() < 50)
+            else if (myLifePoints == otherLifePoints || otherLifePoints >= 20)
             {
                 NateMediumDamage mediumDamage = new NateMediumDamage();
-                lifePoints -= mediumDamage.strategy(me, otherPerson);
+                return mediumDamage.strategy(me, otherPerson);
             }
-            else
+            else // myLifePoints < otherLifePoints || otherLifePoints < 20
             {
                 NateLightDamage lightDamage = new NateLightDamage();
-                lifePoints -= lightDamage.strategy(me, otherPerson);
+                return lightDamage.strategy(me, otherPerson);
             }
         }
-        else
+        else // same nation
         {
-            NateNothingHappens nothingHappens = new NateNothingHappens();
-            lifePoints += nothingHappens.strategy(me, otherPerson); //nothing happens
+            NatePeaceful peaceful = new NatePeaceful();
+            return peaceful.strategy(me, otherPerson);
         }
-
-        return lifePoints;
     }
 }

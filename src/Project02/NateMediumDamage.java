@@ -16,6 +16,21 @@ public class NateMediumDamage implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        return me.getLifePoints() / 5;
+        int damageDealt;
+
+        if (otherPerson.getType() == PeopleType.warrior)
+        {
+            damageDealt = otherPerson.getLifePoints() / 5;
+        }
+        else if (otherPerson.getType() == PeopleType.wizard)
+        {
+            damageDealt = otherPerson.getLifePoints() / 4;
+        }
+        else
+        {
+            damageDealt = otherPerson.getLifePoints() / 6;
+        }
+
+        return damageDealt;
     }
 }
