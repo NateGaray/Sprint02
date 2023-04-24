@@ -6,6 +6,7 @@ package Project02;
  * If latter is false, it will cast a spell by calling Marie Defensive Strategy
  */
 public class MariePeacefulStrategy implements  Strategy{
+
     public static int calculateLifePoints(People me, People otherPerson) {
         if (me.getNation() == otherPerson.getNation() &&
         me.getTribe() == otherPerson.getTribe() && otherPerson.getLifePoints() > me.getLifePoints()

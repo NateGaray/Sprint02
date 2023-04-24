@@ -13,7 +13,7 @@ public class MarieWizardStrategy implements Strategy{
     public int strategy(People me, People otherPerson) {
             int myLifePoints = me.getLifePoints();
             int otherLifePoints = otherPerson.getLifePoints();
-            int lifePoints = 100;
+
         // if other is a wizard from different nation and tribe
         if (otherPerson.getType() == PeopleType.wizard && otherPerson.getNation() != me.getNation()
                     && otherPerson.getTribe() != me.getTribe()) {
