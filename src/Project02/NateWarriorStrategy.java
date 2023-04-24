@@ -23,21 +23,8 @@ public class NateWarriorStrategy implements Strategy
 
         if (me.getNation() != otherPerson.getNation())
         {
-            if (myLifePoints > otherLifePoints || otherLifePoints >= 60)
-            {
-                NateHeavyDamage heavyDamage = new NateHeavyDamage();
-                return heavyDamage.strategy(me, otherPerson);
-            }
-            else if (myLifePoints == otherLifePoints || otherLifePoints >= 20)
-            {
-                NateMediumDamage mediumDamage = new NateMediumDamage();
-                return mediumDamage.strategy(me, otherPerson);
-            }
-            else // myLifePoints < otherLifePoints || otherLifePoints < 20
-            {
-                NateLightDamage lightDamage = new NateLightDamage();
-                return lightDamage.strategy(me, otherPerson);
-            }
+            NateAttackingStrategy attackingStrategy = new NateAttackingStrategy();
+            return attackingStrategy.strategy(me, otherPerson);
         }
         else // same nation
         {
