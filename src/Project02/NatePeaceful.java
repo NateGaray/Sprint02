@@ -43,18 +43,15 @@ public class NatePeaceful implements Strategy
         {
             if (otherPerson.getLifePoints() > me.getLifePoints())
             {
-                NateHeavyDamage heavyDamage = new NateHeavyDamage();
-                return heavyDamage.strategy(me, otherPerson);
+                return otherPerson.getLifePoints() - 30;
             }
             else if (otherPerson.getLifePoints() < me.getLifePoints())
             {
-                NateLightDamage lightDamage = new NateLightDamage();
-                return lightDamage.strategy(me, otherPerson);
+                return otherPerson.getLifePoints() - 10;
             }
             else // equal points
             {
-                NateMediumDamage mediumDamage = new NateMediumDamage();
-                return mediumDamage.strategy(me, otherPerson);
+                return otherPerson.getLifePoints() - 20;
             }
         }
     }
