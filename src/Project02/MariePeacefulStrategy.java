@@ -12,7 +12,7 @@ public class MariePeacefulStrategy implements  Strategy{
         me.getTribe() == otherPerson.getTribe() && otherPerson.getLifePoints() > me.getLifePoints()
         && me.getType() == otherPerson.getType()){
             // if same nation, same tribe, same type peacefully exchange points
-            int pointsToShare = otherPerson.getLifePoints() - 10;
+            int pointsToShare = otherPerson.getLifePoints() - 25;
             return pointsToShare + me.getLifePoints();
         }else {
             return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
