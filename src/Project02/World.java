@@ -122,9 +122,13 @@ public class World
         person1LifePointsToUse = worldCreatedPeople.get(person1).encounterLifePoints(worldCreatedPeople.get(person2), worldCreatedPeople.get(person1));
         person2LifePointsToUse = worldCreatedPeople.get(person2).encounterLifePoints(worldCreatedPeople.get(person1), worldCreatedPeople.get(person2));
 
+        Die die = new Die();
+        die.setDie(10);
+        die.rollDie();
+
         // amount of life points actually used is subject to a pseudo-random encounter
-        Integer p1damage =  (int) (generator.nextFloat() * person1LifePointsToUse);
-        Integer p2damage =  (int) (generator.nextFloat() * person2LifePointsToUse);
+        Integer p1damage =  (int) (generator.nextFloat() * person1LifePointsToUse + die.getDie());
+        Integer p2damage =  (int) (generator.nextFloat() * person2LifePointsToUse + die.getDie());
 
         if ((p1damage > 0) && (p2damage > 0))  // person 1  and person 2 are fighting and inflicting damage
         {
