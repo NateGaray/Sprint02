@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class NateWizardTests
 {
     @Test
-    public void testDifferentNationsIHaveMorePointsIAmAWizardEncounteringAWarrior()
+    public void testDifferentNationsIHaveMorePointsMyPointsAreGreaterThan70IAmAWizardEncounteringAWarrior()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
         NateWarriorStrategy warriorStrategy = new NateWarriorStrategy();
@@ -13,22 +13,22 @@ public class NateWizardTests
         People Arphaxad = new NateWizard("Nate", "0", 90, wizardStrategy);
         People Anthothijah = new NateWarrior("Bob", "0", 80, warriorStrategy);
 
-        assertEquals(7, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(22, wizardStrategy.strategy(Arphaxad, Anthothijah));
     }
 
     @Test
-    public void testDifferentNationsIHaveMorePointsIAmAWizardEncounteringAWizard()
+    public void testDifferentNationsIHaveMorePointsMyPointsAreGreaterThan70IAmAWizardEncounteringAWizard()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
 
         People Arphaxad = new NateWizard("Nate", "0", 90, wizardStrategy);
         People Anthothijah = new NateWizard("Bob", "0", 80, wizardStrategy);
 
-        assertEquals(13, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(40, wizardStrategy.strategy(Arphaxad, Anthothijah));
     }
 
     @Test
-    public void testDifferentNationsIHaveMorePointsIAmAWizardEncounteringAHealer()
+    public void testDifferentNationsIHaveMorePointsMyPointsAreGreaterThan70IAmAWizardEncounteringAHealer()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
         NateHealerStrategy healerStrategy = new NateHealerStrategy();
@@ -36,46 +36,46 @@ public class NateWizardTests
         People Arphaxad = new NateWizard("Nate", "0", 90, wizardStrategy);
         People Anthothijah = new NateHealer("Bob", "0", 80, healerStrategy);
 
-        assertEquals(8, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(26, wizardStrategy.strategy(Arphaxad, Anthothijah));
     }
 
     @Test
-    public void testDifferentNationsWeHaveEqualPointsIAmAWizardEncounteringAWarrior()
+    public void testDifferentNationsWeHaveEqualPointsOtherPointsLessThan50IAmAWizardEncounteringAWarrior()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
         NateWarriorStrategy warriorStrategy = new NateWarriorStrategy();
 
-        People Arphaxad = new NateWizard("Nate", "0", 60, wizardStrategy);
-        People Anthothijah = new NateWarrior("Bob", "0", 60, warriorStrategy);
+        People Arphaxad = new NateWizard("Nate", "0", 40, wizardStrategy);
+        People Anthothijah = new NateWarrior("Bob", "0", 40, warriorStrategy);
 
-        assertEquals(8, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(5, wizardStrategy.strategy(Arphaxad, Anthothijah));
     }
 
     @Test
-    public void testDifferentNationsWeHaveEqualPointsIAmAWizardEncounteringAWizard()
+    public void testDifferentNationsWeHaveEqualPointsOtherPointsLessThan50IAmAWizardEncounteringAWizard()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
 
-        People Arphaxad = new NateWizard("Nate", "0", 60, wizardStrategy);
-        People Anthothijah = new NateWizard("Bob", "0", 60, wizardStrategy);
-
-        assertEquals(15, wizardStrategy.strategy(Arphaxad, Anthothijah));
-    }
-
-    @Test
-    public void testDifferentNationsWeHaveEqualPointsIAmAWizardEncounteringAHealer()
-    {
-        NateWizardStrategy wizardStrategy = new NateWizardStrategy();
-        NateHealerStrategy healerStrategy = new NateHealerStrategy();
-
-        People Arphaxad = new NateWizard("Nate", "0", 60, wizardStrategy);
-        People Anthothijah = new NateHealer("Bob", "0", 60, healerStrategy);
+        People Arphaxad = new NateWizard("Nate", "0", 40, wizardStrategy);
+        People Anthothijah = new NateWizard("Bob", "0", 40, wizardStrategy);
 
         assertEquals(10, wizardStrategy.strategy(Arphaxad, Anthothijah));
     }
 
     @Test
-    public void testDifferentNationsIHaveLessPointsIAmAWizardEncounteringAWarrior()
+    public void testDifferentNationsWeHaveEqualPointsOtherPointsLessThan50IAmAWizardEncounteringAHealer()
+    {
+        NateWizardStrategy wizardStrategy = new NateWizardStrategy();
+        NateHealerStrategy healerStrategy = new NateHealerStrategy();
+
+        People Arphaxad = new NateWizard("Nate", "0", 40, wizardStrategy);
+        People Anthothijah = new NateHealer("Bob", "0", 40, healerStrategy);
+
+        assertEquals(6, wizardStrategy.strategy(Arphaxad, Anthothijah));
+    }
+
+    @Test
+    public void testDifferentNationsIHaveLessPointsOrMyPointsLessThan70OrOtherPointsGreaterThanOrEqualTo50IAmAWizardEncounteringAWarrior()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
         NateWarriorStrategy warriorStrategy = new NateWarriorStrategy();
@@ -83,22 +83,43 @@ public class NateWizardTests
         People Arphaxad = new NateWizard("Nate", "0", 30, wizardStrategy);
         People Anthothijah = new NateWarrior("Bob", "0", 40, warriorStrategy);
 
-        assertEquals(11, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(3, wizardStrategy.strategy(Arphaxad, Anthothijah));
+
+        People Daniel = new NateWizard("Nate", "0", 50, wizardStrategy);
+        People Sarah = new NateWarrior("Bob", "0", 50, warriorStrategy);
+
+        assertEquals(4, wizardStrategy.strategy(Daniel, Sarah));
+
+        People Matthew = new NateWizard("Nate", "0", 66, wizardStrategy);
+        People Abraraham = new NateWarrior("Bob", "0", 61, warriorStrategy);
+
+        assertEquals(5, wizardStrategy.strategy(Matthew, Abraraham));
     }
 
     @Test
-    public void testDifferentNationsIHaveLessPointsIAmAWarriorEncounteringAWizard()
+    public void testDifferentNationsIHaveLessPointsOrMyPointsLessThan70OrOtherPointsGreaterThanOrEqualTo50IAmAWarriorEncounteringAWizard()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
 
         People Arphaxad = new NateWizard("Nate", "0", 30, wizardStrategy);
         People Anthothijah = new NateWizard("Bob", "0", 40, wizardStrategy);
 
-        assertEquals(20, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(6, wizardStrategy.strategy(Arphaxad, Anthothijah));
+
+        People Daniel = new NateWizard("Nate", "0", 50, wizardStrategy);
+        People Sarah = new NateWizard("Bob", "0", 50, wizardStrategy);
+
+        assertEquals(8, wizardStrategy.strategy(Daniel, Sarah));
+
+
+        People Matthew = new NateWizard("Nate", "0", 66, wizardStrategy);
+        People Abraham = new NateWizard("Bob", "0", 61, wizardStrategy);
+
+        assertEquals(6, wizardStrategy.strategy(Arphaxad, Anthothijah));
     }
 
     @Test
-    public void testDifferentNationsIHaveLessPointsIAmAWarriorEncounteringAHealer()
+    public void testDifferentNationsIHaveLessPointsOrMyPointsLessThan70OrOtherPointsGreaterThanOrEqualTo50IAmAWarriorEncounteringAHealer()
     {
         NateWizardStrategy wizardStrategy = new NateWizardStrategy();
         NateHealerStrategy healerStrategy = new NateHealerStrategy();
@@ -106,7 +127,17 @@ public class NateWizardTests
         People Arphaxad = new NateWarrior("Nate", "0", 30, wizardStrategy);
         People Anthothijah = new NateHealer("Bob", "0", 40, healerStrategy);
 
-        assertEquals(10, wizardStrategy.strategy(Arphaxad, Anthothijah));
+        assertEquals(3, wizardStrategy.strategy(Arphaxad, Anthothijah));
+
+        People Daniel = new NateWarrior("Nate", "0", 50, wizardStrategy);
+        People Sarah = new NateHealer("Bob", "0", 50, healerStrategy);
+
+        assertEquals(4, wizardStrategy.strategy(Daniel, Sarah));
+
+        People Matthew = new NateWarrior("Nate", "0", 66, wizardStrategy);
+        People Abraham = new NateHealer("Bob", "0", 61, healerStrategy);
+
+        assertEquals(5, wizardStrategy.strategy(Matthew, Abraham));
     }
 
     @Test

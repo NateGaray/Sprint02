@@ -17,7 +17,7 @@ public class NateHealerStrategy implements Strategy
         int lifePoints = me.getLifePoints();
 
         Die die = new Die();
-        die.setDie(98);
+        die.setDie(100);
         die.rollDie();
 
         if (me.getNation() == otherPerson.getNation())
@@ -30,22 +30,11 @@ public class NateHealerStrategy implements Strategy
         {
             if (lifePoints >= 50)
             {
-                lifePoints -= lifePoints / 2;
-            }
-            else if (lifePoints >= 25)
-            {
-                lifePoints -= lifePoints / 4;
+                lifePoints -= 10;
             }
             else
             {
-                if (lifePoints < 10)
-                {
-                    lifePoints -= 1;
-                }
-                else
-                {
-                    lifePoints -= lifePoints / 10;
-                }
+                lifePoints -= 3;
             }
         }
 

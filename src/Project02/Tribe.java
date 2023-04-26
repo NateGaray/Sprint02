@@ -32,7 +32,7 @@ public class Tribe
             }
             else
             {
-                members.add(new NateHealer("Nate", tribeName, tribeLifePoints / 3, new NateWizardStrategy()));
+                members.add(new NateHealer("Nate", tribeName, tribeLifePoints / 3, new NateHealerStrategy()));
                 members.add(new MarieHealer("Marie", tribeName, PeopleType.healer, tribeLifePoints / 3, new MarieHealerStrategy()));
                 members.add(new JeremyHealer("Jeremy", tribeName, PeopleType.healer, tribeLifePoints / 3, new JeremyHealerStrategy()));
             }
