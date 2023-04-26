@@ -21,7 +21,7 @@ public class NateArtifactStrategy implements Strategy
         die.setDie(40);
         die.rollDie();
 
-        if (die.getDie() % 11 == 0)
+        if (die.getDie() == 17)
         {
            return otherPerson.getLifePoints(); // Decoy potion. No damage dealt.
         }
