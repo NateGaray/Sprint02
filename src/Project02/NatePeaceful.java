@@ -16,23 +16,42 @@ public class NatePeaceful implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        if (otherPerson.getLifePoints() > me.getLifePoints())
+        if (me.getTribe() == otherPerson.getTribe())
         {
-            return otherPerson.getLifePoints();
-        }
-        else if (me.getLifePoints() == otherPerson.getLifePoints())
-        {
-            return me.getLifePoints() - 1;
-        }
-        else
-        {
-            if (me.getLifePoints() < 10)
+            int pointsShared;
+
+            if (otherPerson.getLifePoints() > me.getLifePoints())
             {
-                return 1;
+                 pointsShared = otherPerson.getLifePoints() / 4;
+
+                 return me.getLifePoints() + pointsShared;
             }
-            else // otherPerson.getLifePoints() < me.getLifePoints()
+            else if (otherPerson.getLifePoints() < me.getLifePoints())
             {
-                return me.getLifePoints() + 10;
+                pointsShared = me.getLifePoints() / 4;
+
+                return otherPerson.getLifePoints() + pointsShared;
+            }
+            else
+            {
+                pointsShared = 1;
+
+                return otherPerson.getLifePoints() + pointsShared;
+            }
+        }
+        else // different tribes
+        {
+            if (otherPerson.getLifePoints() > me.getLifePoints())
+            {
+                return otherPerson.getLifePoints() - 30;
+            }
+            else if (otherPerson.getLifePoints() < me.getLifePoints())
+            {
+                return otherPerson.getLifePoints() - 10;
+            }
+            else // equal points
+            {
+                return otherPerson.getLifePoints() - 20;
             }
         }
     }

@@ -13,16 +13,16 @@ public class MarieWizardStrategy implements Strategy{
     public int strategy(People me, People otherPerson) {
             int myLifePoints = me.getLifePoints();
             int otherLifePoints = otherPerson.getLifePoints();
-            int lifePoints = 100;
+
         // if other is a wizard from different nation and tribe
         if (otherPerson.getType() == PeopleType.wizard && otherPerson.getNation() != me.getNation()
                     && otherPerson.getTribe() != me.getTribe()) {
                 // if other life points are also less than my life points
                 if (otherLifePoints < myLifePoints) {
                     // attack causing as minimal damage as possible
-                    return otherLifePoints/4;
+                    return otherLifePoints/6;
                 } else {
-                    // if meo has more life points than me attack to cause as much damage as possible
+                    // if other has more life points than me attack to cause as much damage as possible
                     return otherLifePoints / 2;
                 }
             } else if (otherPerson.getNation() == me.getNation() &&
@@ -31,6 +31,5 @@ public class MarieWizardStrategy implements Strategy{
             } else {
                 return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
             }
-
         }
     }

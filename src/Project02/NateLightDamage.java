@@ -16,19 +16,41 @@ public class NateLightDamage implements Strategy
     @Override
     public int strategy(People me, People otherPerson)
     {
-        int damageDealt;
+        int damageDealt = 0;
 
         if (otherPerson.getType() == PeopleType.warrior)
         {
-            damageDealt = otherPerson.getLifePoints() / 10;
+            if (me.getType() == PeopleType.warrior)
+            {
+                damageDealt = (otherPerson.getLifePoints() / 3);
+            }
+            else if (me.getType() == PeopleType.wizard)
+            {
+                damageDealt = (int) (otherPerson.getLifePoints() / 3.5);
+            }
         }
         else if (otherPerson.getType() == PeopleType.wizard)
         {
-            damageDealt = otherPerson.getLifePoints() / 8;
+            if (me.getType() == PeopleType.warrior)
+            {
+                damageDealt = (int)(otherPerson.getLifePoints() / 2.5);
+            }
+            else if (me.getType() == PeopleType.wizard)
+            {
+                damageDealt = (otherPerson.getLifePoints() / 2);
+            }
         }
         else
         {
-            damageDealt = otherPerson.getLifePoints() / 12;
+
+            if (me.getType() == PeopleType.warrior)
+            {
+                damageDealt = (otherPerson.getLifePoints() / 4);
+            }
+            else if (me.getType() == PeopleType.wizard)
+            {
+                damageDealt = (otherPerson.getLifePoints() / 3);
+            }
         }
 
         return damageDealt;

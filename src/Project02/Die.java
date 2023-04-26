@@ -12,7 +12,7 @@ public class Die
 
     public void setDie(int dieFace)
     {
-        this.dieFaces = dieFace + 2;
+        this.dieFaces = dieFace;
     }
     public int getDie()
     {
@@ -20,7 +20,6 @@ public class Die
     }
 
     public void rollDie()
-    // every roll should come up with a number between 1 and 10
     // die should have faces greater than 2
     {
         die = random.nextInt(dieFaces);

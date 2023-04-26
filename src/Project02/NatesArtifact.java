@@ -8,14 +8,30 @@ package Project02;
 
 public class NatesArtifact extends People
 {
-    public NatesArtifact(String nation, String tribe, PeopleType person, int lifePoints, Strategy strategy)
+    /**
+     * The constructor for this class gives the description of the artifact created by nate
+     * @param nation
+     * @param tribe
+     * @param lifePoints
+     * @param strategy
+     */
+
+    public NatesArtifact(String nation, String tribe, int lifePoints, Strategy strategy)
     {
-        super(nation, tribe, person, lifePoints, strategy);
+        super(nation, tribe, PeopleType.wizard, lifePoints, strategy);
+        myDescription = "\tNate Artifact";
+
     }
 
+    /**
+     * This method sets the strategy that will be used
+     * @param me
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterLifePoints(People me, People otherPerson) 
     {
-        return 0;
+        return encounterStrategy.strategy(me, otherPerson);
     }
 }
