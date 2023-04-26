@@ -41,16 +41,6 @@ class JeremyWarriorStrategyTest
     }
 
     @Test
-    public void testIfOtherPersonIsAWizardToSeeIfIHaveLessLifePoints()
-    {
-        JeremyWarriorStrategy jeremyWarriorStrategy = new JeremyWarriorStrategy();
-        People dan = new JeremyWarrior("hello", "0", 40, jeremyWarriorStrategy);
-        People bob = new JeremyWizard("hi", "1", 80, jeremyWarriorStrategy);
-
-        assertEquals(90, jeremyWarriorStrategy.strategy(dan, bob));
-    }
-
-    @Test
     public void testIfOtherPersonIsAWarrior()
     {
         JeremyWarriorStrategy jeremyWarriorStrategy = new JeremyWarriorStrategy();
@@ -69,4 +59,15 @@ class JeremyWarriorStrategyTest
 
         assertEquals(-10, jeremyWarriorStrategy.strategy(dan, bob));
     }
+
+    @Test
+    public void testIfArtifactWillActivate()
+    {
+        JeremyWarriorStrategy jeremyWarriorStrategy = new JeremyWarriorStrategy();
+        People dan = new JeremyWarrior("1", "0", 7, jeremyWarriorStrategy);
+        People bob = new JeremyWizard("0", "1", 70, jeremyWarriorStrategy);
+
+        assertEquals(7, jeremyWarriorStrategy.strategy(dan, bob));
+    }
+
 }

@@ -44,10 +44,10 @@ class JeremyWizardStrategyTest
     public void testIfMyLifePointsAreLess()
     {
         JeremyWizardStrategy jeremyWizardStrategy = new JeremyWizardStrategy();
-        People dan = new JeremyWizard("Hello", "0", 90, jeremyWizardStrategy);
+        People dan = new JeremyWizard("Hello", "0", 9, jeremyWizardStrategy);
         People bob = new JeremyWizard("Hi", "1", 100, jeremyWizardStrategy);
 
-        assertEquals(40, jeremyWizardStrategy.strategy(dan, bob));
+        assertEquals(9, jeremyWizardStrategy.strategy(dan, bob));
     }
 
     @Test
