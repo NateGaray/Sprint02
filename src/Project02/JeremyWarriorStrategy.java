@@ -44,7 +44,7 @@ public class JeremyWarriorStrategy implements Strategy
                         JeremyAggressiveWarrior jeremyAggressiveWarrior = new JeremyAggressiveWarrior();
                         lifePoints = jeremyAggressiveWarrior.strategy(me, otherPerson);
                     }
-                    else if (otherPerson.getType() == PeopleType.warrior)
+                    if (otherPerson.getType() == PeopleType.warrior)
                     {
                         JeremyDefensiveWarrior jeremyDefensiveWarrior = new JeremyDefensiveWarrior();
                         lifePoints = jeremyDefensiveWarrior.strategy(me, otherPerson);

@@ -5,6 +5,7 @@ package Project02;
  */
 public class JeremyAggressiveWizard implements Strategy
 {
+    private int lifePoints;
     /**
      *  In my aggressive strategy it starts off by seeing if the nations are not the same then seeing if
      *  the tribes are not the same then if I have more life points than the other tribe I will end
@@ -26,12 +27,12 @@ public class JeremyAggressiveWizard implements Strategy
                     return otherPerson.getLifePoints() - 40;
                     // The wizards are going to be very aggressive if the other nation is weaker
                 }
-                else if (me.getLifePoints() < otherPerson.getLifePoints())
+                else if (me.getLifePoints() <= 10)
                 {
-                    if (me.getTribe() != otherPerson.getTribe()) {
-                        return otherPerson.getLifePoints() - 60;
-                        // This will do the most damage if im lower in health and if the tribes
-                        // are not the same
+                    if (me.getTribe() != otherPerson.getTribe())
+                    {
+                        JeremyArtifactStrategy jeremyArtifactStrategy = new JeremyArtifactStrategy();
+                        lifePoints = jeremyArtifactStrategy.strategy(me, otherPerson);
                     }
                 }
             }

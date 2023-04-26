@@ -14,7 +14,7 @@ public class NatesArtifact extends People
     }
 
     @Override
-    public int encounterLifePoints(People me, People otherPerson)
+    public int encounterLifePoints(People me, People otherPerson) 
     {
         return 0;
     }

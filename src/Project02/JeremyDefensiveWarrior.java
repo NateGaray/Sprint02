@@ -34,3 +34,4 @@ public class JeremyDefensiveWarrior implements Strategy
         return me.getLifePoints();
     }
 }
+

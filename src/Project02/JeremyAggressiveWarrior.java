@@ -4,6 +4,7 @@ package Project02;
  */
 public class JeremyAggressiveWarrior implements Strategy
 {
+    private int lifePoints;
     /**
      * In Jeremy's aggressive warrior, it first checks if the nation are not the same, and then
      * it checks to see of the tribes are the same or if they are the same. So then it checks if
@@ -27,11 +28,10 @@ public class JeremyAggressiveWarrior implements Strategy
                     return otherPerson.getLifePoints() / 2;
                     //If I have more life points than the other person, I can easily overtake them
                 }
-                else if (me.getLifePoints() < otherPerson.getLifePoints())
+                else if (me.getLifePoints() <= 10)
                 {
-                    return me.getLifePoints() + 50;
-                    //If I have less points than the other person, I will be very sneaky and steal gear
-                    //from the other tribe.
+                    JeremyArtifactStrategy jeremyArtifactStrategy = new JeremyArtifactStrategy();
+                    lifePoints = jeremyArtifactStrategy.strategy(me, otherPerson);
                 }
             }
         }
