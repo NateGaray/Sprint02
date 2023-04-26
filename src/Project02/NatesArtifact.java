@@ -16,9 +16,9 @@ public class NatesArtifact extends People
      * @param strategy
      */
 
-    public NatesArtifact(String nation, String tribe, int lifePoints, Strategy strategy)
+    public NatesArtifact(String nation, String tribe, PeopleType peopleType, int lifePoints, Strategy strategy)
     {
-        super(nation, tribe, PeopleType.wizard, lifePoints, strategy);
+        super(nation, tribe, peopleType, lifePoints, strategy);
         myDescription = "\tNate Artifact";
 
     }
