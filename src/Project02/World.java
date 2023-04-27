@@ -55,6 +55,10 @@ public class World
                     }
                     break;
                 }
+                if (round == 3)
+                {
+                    worldCreatedPeople.removeAll(PeopleType.artifact);
+                }
 
             }
 
