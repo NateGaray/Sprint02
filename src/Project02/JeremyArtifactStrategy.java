@@ -22,12 +22,12 @@ public class JeremyArtifactStrategy implements Strategy
         {
             if (me.getTribe() != otherPerson.getTribe() || me.getTribe() == otherPerson.getTribe())
             {
-                if (me.getLifePoints() <= 10)
+                if (me.getLifePoints() <= 100)
                 {
                     return otherPerson.getLifePoints() - 50;
                     //If im less than 10 health I will pop a low level strength potion to multiply my damage
                 }
-                else if (me.getLifePoints() <= 5)
+                else if (me.getLifePoints() <= 80)
                 {
                     return otherPerson.getLifePoints() - 90;
                     //If I less than 5 health I will pop a high level strength potion to multiply my damage
