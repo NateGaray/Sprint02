@@ -6,7 +6,7 @@ package Project02;
  * Based on the number rolled, a particular potion will be thrown.
  */
 
-public class NatesArtifact extends People
+public class NateArtifact extends People
 {
     /**
      * The constructor for this class gives the description of the artifact created by nate
@@ -16,7 +16,7 @@ public class NatesArtifact extends People
      * @param strategy
      */
 
-    public NatesArtifact(String nation, String tribe, PeopleType peopleType, int lifePoints, Strategy strategy)
+    public NateArtifact(String nation, String tribe, PeopleType peopleType, int lifePoints, Strategy strategy)
     {
         super(nation, tribe, peopleType, lifePoints, strategy);
         myDescription = "\tNate Artifact";

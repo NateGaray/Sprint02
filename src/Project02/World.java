@@ -25,43 +25,44 @@ public class World
     }
 
     public void war()
-        {
-            ArrayList<Integer> worldSurvivingPeople = new ArrayList<>();
+    {
+        ArrayList<Integer> worldSurvivingPeople = new ArrayList<>();
 
-            for(int round = 1; round < numberOfRounds; round++)
+        for(int round = 1; round < numberOfRounds; round++)
+        {
+            if (round == 3)
             {
-                Set<String> survivingNations = new HashSet<>();
-                System.out.println("Round number: " + round);
-                worldSurvivingPeople.clear();
-                worldSurvivingPeople.addAll(getWorldSurvivingPeople());
-                survivingNations.addAll(getSurvivingNations());
-                if ((worldSurvivingPeople.size() >= 2) && (survivingNations.size() > 1) )
-                    playOneRound(worldSurvivingPeople);
-                else
-                {
-                    System.out.print("Game is over! Winning Nation is: ");
-                    if (survivingNations.size() == 0)
-                    {
-                        System.out.println("All Nations Destroyed.");
-                    }
-                    else
-                    {
-                        System.out.println(survivingNations);
-                        System.out.println("The survivors are:");
-                        for (Integer i = 0; i < worldSurvivingPeople.size(); i++)
-                        {
-                            System.out.println(worldCreatedPeople.get(worldSurvivingPeople.get(i)));
-                        }
-                    }
-                    break;
-                }
-                if (round == 3)
-                {
-                    worldCreatedPeople.removeAll(PeopleType.artifact);
-                }
 
             }
 
+            Set<String> survivingNations = new HashSet<>();
+            System.out.println("Round number: " + round);
+            worldSurvivingPeople.clear();
+            worldSurvivingPeople.addAll(getWorldSurvivingPeople());
+            survivingNations.addAll(getSurvivingNations());
+            if ((worldSurvivingPeople.size() >= 2) && (survivingNations.size() > 1))
+            {
+                playOneRound(worldSurvivingPeople);
+            }
+            else
+            {
+                System.out.print("Game is over! Winning Nation is: ");
+                if (survivingNations.size() == 0)
+                {
+                    System.out.println("All Nations Destroyed.");
+                }
+                else
+                {
+                    System.out.println(survivingNations);
+                    System.out.println("The survivors are:");
+                    for (Integer i = 0; i < worldSurvivingPeople.size(); i++)
+                    {
+                        System.out.println(worldCreatedPeople.get(worldSurvivingPeople.get(i)));
+                    }
+                }
+                break;
+            }
+        }
     }
 
 

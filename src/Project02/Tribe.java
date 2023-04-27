@@ -38,12 +38,14 @@ public class Tribe
             }
             else
             {
-                members.add(new NatesArtifact("Nate", tribeName, PeopleType.artifact, (tribeLifePoints / 4), new NateArtifactStrategy()));
+                members.add(new NateArtifact("Nate", tribeName, PeopleType.artifact, (tribeLifePoints / 4), new NateArtifactStrategy()));
                 members.add(new MarieArtifact("Marie", tribeName, PeopleType.artifact, (tribeLifePoints / 4), new MarieArtifactStrategy()));
                 members.add(new JeremyArtifact("Jeremy", tribeName, PeopleType.artifact, (tribeLifePoints / 4), new JeremyArtifactStrategy()));
             }
         for(int i = 0; i < members.size(); i++)
+        {
             livingMembers.addAll(members);
+        }
     }
 
     public ArrayList<People> getLivingTribeMembers()
