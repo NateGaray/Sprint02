@@ -9,10 +9,11 @@ public class MarieArtifact extends People
 
     public MarieArtifact(String nation, String tribe, PeopleType person, int lifePoints, Strategy strategy) {
         super(nation, tribe, person, lifePoints, strategy);
+        myDescription = "\tMarie Artifact";
     }
 
     @Override
     public int encounterLifePoints(People me, People otherPerson) {
-        return 0;
+        return encounterStrategy.strategy(me,otherPerson);
     }
 }
