@@ -11,22 +11,22 @@ public class MarieOffensiveStrategy implements Strategy{
     public int strategy(People me, People otherPerson)
     {
         int lifePoints = 0;
-    if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
-        if (me.getLifePoints() < otherPerson.getLifePoints()){
-            if (otherPerson.getType() == PeopleType.warrior)
-            {
-                lifePoints = me.getLifePoints() - 15; // always run away
-            }
+    if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe())
+    {
+        if (me.getLifePoints() < otherPerson.getLifePoints() && otherPerson.getType() == PeopleType.warrior)
+        {
+            lifePoints = me.getLifePoints() - 15; // always run away
         }
     }
-    else if (me.getNation() != otherPerson.getNation() && me.getTribe() != otherPerson.getTribe()){
-        if (me.getLifePoints() > otherPerson.getLifePoints()){
-            if(otherPerson.getType() == PeopleType.warrior){
-                MarieDefensiveStrategy marieDefensiveStrategy = new MarieDefensiveStrategy();
-                return marieDefensiveStrategy.strategy(me, otherPerson);
-            }
-        }
-    } else {
+
+    else if (me.getLifePoints() > otherPerson.getLifePoints()
+            && otherPerson.getType() == PeopleType.warrior)
+    {
+        MarieDefensiveStrategy marieDefensiveStrategy = new MarieDefensiveStrategy();
+        return marieDefensiveStrategy.strategy(otherPerson, me);
+    }
+    else
+    {
         MariePeacefulStrategy mariePeacefulStrategy = new MariePeacefulStrategy();
         return mariePeacefulStrategy.strategy(me, otherPerson);
     }

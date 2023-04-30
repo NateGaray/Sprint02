@@ -1,6 +1,6 @@
 package Project02;
 
-public class MarieArtifactStrategy implements Strategy{
+public class MarieArtifactStrategy implements Strategy {
 
 /*
 This class will stimulate the invisibility cloak in Harry Potter. This cloak will hide the
@@ -11,17 +11,22 @@ attacking using my defensive strategy.
 
     @Override
     public int strategy(People me, People otherPerson) {
-        int invisibilityCloak = 0;
-        int meInvisible = 0;
+        int coveredCloak = 45;
+        int lifePoints= 0;
         if (me.getNation() != otherPerson.getNation())
-            if (me.getTribe() != otherPerson.getTribe())
-                if (otherPerson.getLifePoints() > me.getLifePoints()) {
-                    meInvisible = me.getLifePoints() - invisibilityCloak;
-                    return meInvisible;
-                }
-        else{
+            if (me.getTribe() != otherPerson.getTribe()
+                    && otherPerson.getLifePoints() > me.getLifePoints()) {
+               lifePoints = me.getLifePoints() + coveredCloak; //the invisible cloak attaches itself to increase me lifepoints
+               return lifePoints;
+            }else if (me.getNation() == otherPerson.getNation())
+                if (me.getTribe()== otherPerson.getTribe() && otherPerson.getLifePoints() == me.getLifePoints())
+                {
+                   MariePeacefulStrategy.calculateLifePoints(me, otherPerson);
+                }else MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
+        else {
 
-        }
-        return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
+            }
+        return coveredCloak;
     }
 }
+

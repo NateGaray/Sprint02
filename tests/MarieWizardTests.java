@@ -7,7 +7,7 @@ public class MarieWizardTests {
         MarieWizardStrategy wizardStrategy = new MarieWizardStrategy();
         People me = new MarieWizard("Minions", "2", 35, wizardStrategy);
         People other = new MarieWizard("Idiots", "1", 34, wizardStrategy);
-        assertEquals(8, wizardStrategy.strategy(me, other));
+        assertEquals(5, wizardStrategy.strategy(me, other));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class MarieWizardTests {
         MarieWizardStrategy wizardStrategy = new MarieWizardStrategy();
         People me = new MarieWizard("Idiots", "1", 34, wizardStrategy);
         People other = new MarieWizard("Idiots", "1", 35, wizardStrategy);
-        assertEquals(59, wizardStrategy.strategy(me, other));
+        assertEquals(44, wizardStrategy.strategy(me, other));
     }
 
     @Test
@@ -40,6 +40,14 @@ public class MarieWizardTests {
         People me = new MarieWizard("Minions", "2", 36, wizardStrategy);
         People other = new MarieWarrior("Idiots", "1", 35, wizardStrategy);
         assertEquals(17, wizardStrategy.strategy(me, other));
+    }
+    @Test
+    public void testArtifactStrategy()
+    {
+        MarieArtifactStrategy artifactStrategy = new MarieArtifactStrategy();
+        People me = new MarieWizard("Idiots","2",55,artifactStrategy);
+        People other = new MarieWizard("Minons","1",100,artifactStrategy);
+        assertEquals(100,artifactStrategy.strategy(me,other));
     }
 
 }

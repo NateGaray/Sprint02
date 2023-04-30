@@ -37,13 +37,12 @@ public class MarieWarriorTests {
 }
 
 @Test
-    public void testOtherOffensive()
+    public void testArtifactStrategy()
 {
-    MarieOffensiveStrategy offensiveStrategy = new MarieOffensiveStrategy();
-    People me = new MarieWizard("Idiots","2",100, offensiveStrategy);
-    People other = new MarieWarrior("Minons","1",55, offensiveStrategy);
-    assertEquals(27,offensiveStrategy.strategy(me,other));
+    MarieArtifactStrategy artifactStrategy = new MarieArtifactStrategy();
+    People me = new MarieWarrior("Idiots","2",55,artifactStrategy);
+    People other = new MarieWarrior("Minons","1",100,artifactStrategy);
+    assertEquals(100,artifactStrategy.strategy(me,other));
 }
-
 }
 
