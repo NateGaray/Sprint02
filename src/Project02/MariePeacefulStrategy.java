@@ -21,6 +21,6 @@ public class MariePeacefulStrategy implements  Strategy{
 
     @Override
     public int strategy(People me, People otherPerson) {
-        return 0;
+        return MariePeacefulStrategy.calculateLifePoints(me, otherPerson);
     }
 }

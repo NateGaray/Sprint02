@@ -50,4 +50,12 @@ public class MarieWizardTests {
         assertEquals(100,artifactStrategy.strategy(me,other));
     }
 
+    @Test
+    public void testPeacefulStrategy()
+    {
+        MariePeacefulStrategy peacefulStrategy = new MariePeacefulStrategy();
+        People me = new MarieWizard("Idiots","3",55,peacefulStrategy);
+        People other = new MarieWizard("Idiots", "3",65,peacefulStrategy);
+        assertEquals(95,peacefulStrategy.strategy(me,other));
+    }
 }

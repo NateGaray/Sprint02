@@ -8,7 +8,7 @@ package Project02;
 public class MarieDefensiveStrategy implements Strategy{
     @Override
     public int strategy(People me, People otherPerson) {
-        return 0;
+        return MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
     }
     public static int calculateLifePoints(People me, People otherPerson) {
         if (me.getNation() != otherPerson.getNation() &&

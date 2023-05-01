@@ -44,5 +44,31 @@ public class MarieWarriorTests {
     People other = new MarieWarrior("Minons","1",100,artifactStrategy);
     assertEquals(100,artifactStrategy.strategy(me,other));
 }
+
+@Test
+    public void testDefensiveStrategy()
+{
+    MarieDefensiveStrategy defensiveStrategy = new MarieDefensiveStrategy();
+    People me = new MarieWizard("Idiots","2",55,defensiveStrategy);
+    People other = new MarieWarrior("Minions", "1", 65,defensiveStrategy);
+    assertEquals(11,defensiveStrategy.strategy(me,other));
+}
+@Test
+    public void testDefensiveStrategy2()
+{
+        MarieDefensiveStrategy defensiveStrategy = new MarieDefensiveStrategy();
+        People me = new MarieWizard("Idiots","2",65,defensiveStrategy);
+        People other = new MarieWarrior("Minions", "1", 55,defensiveStrategy);
+        assertEquals(27,defensiveStrategy.strategy(me,other));
+}
+
+@Test
+    public void testPeacefulStrategy()
+{
+    MariePeacefulStrategy peacefulStrategy = new MariePeacefulStrategy();
+    People me = new MarieWarrior("Idiots","3",55,peacefulStrategy);
+    People other = new MarieWarrior("Idiots", "3",65,peacefulStrategy);
+    assertEquals(95,peacefulStrategy.strategy(me,other));
+}
 }
 

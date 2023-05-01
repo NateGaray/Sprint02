@@ -12,20 +12,16 @@ attacking using my defensive strategy.
     @Override
     public int strategy(People me, People otherPerson) {
         int coveredCloak = 45;
-        int lifePoints= 0;
+        int lifePoints = 0;
         if (me.getNation() != otherPerson.getNation())
             if (me.getTribe() != otherPerson.getTribe()
                     && otherPerson.getLifePoints() > me.getLifePoints()) {
-               lifePoints = me.getLifePoints() + coveredCloak; //the invisible cloak attaches itself to increase me lifepoints
-               return lifePoints;
-            }else if (me.getNation() == otherPerson.getNation())
-                if (me.getTribe()== otherPerson.getTribe() && otherPerson.getLifePoints() == me.getLifePoints())
-                {
-                   MariePeacefulStrategy.calculateLifePoints(me, otherPerson);
-                }else MarieDefensiveStrategy.calculateLifePoints(me, otherPerson);
-        else {
-
-            }
+                lifePoints = me.getLifePoints() + coveredCloak; //the invisible cloak attaches itself to increase me lifepoints
+                return lifePoints;
+            } else if (me.getNation() == otherPerson.getNation())
+                if (me.getTribe() == otherPerson.getTribe() && otherPerson.getLifePoints() == me.getLifePoints()) {
+                    MariePeacefulStrategy.calculateLifePoints(me, otherPerson);
+                }
         return coveredCloak;
     }
 }
